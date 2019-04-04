@@ -6,8 +6,10 @@ var express = require("express");
 
 var PORT = process.env.PORT || 3000;
 
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-    res.send("YOU'RE ON THE HOME PAGE!!");
+    res.render("home");
 });
 
 // possibly need to pass in process.env.IP for Heroku
