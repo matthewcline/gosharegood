@@ -4,7 +4,8 @@
   "description": "App to share good news globally",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/matthewcline/gosharegood/issues"
   },
-  "homepage": "https://github.com/matthewcline/gosharegood#readme"
+  "homepage": "https://github.com/matthewcline/gosharegood#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
