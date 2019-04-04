@@ -1,0 +1,19 @@
+{
+  "name": "gosharegood",
+  "version": "1.0.0",
+  "description": "App to share good news globally",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewcline/gosharegood.git"
+  },
+  "author": "Matthew Cline",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewcline/gosharegood/issues"
+  },
+  "homepage": "https://github.com/matthewcline/gosharegood#readme"
+}
