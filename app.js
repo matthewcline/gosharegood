@@ -1,10 +1,16 @@
+// 'use strict';
+
+// const instead of var?
 var express = require("express");
     app     = express();
+
+var PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
     res.send("YOU'RE ON THE HOME PAGE!!");
 });
 
-app.listen(process.env.PORT, process.env.IP, () => {
-    console.log("Server running...");
+// possibly need to pass in process.env.IP for Heroku
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
