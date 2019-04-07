@@ -1,7 +1,13 @@
-#feed {
+/* #feed {
     width: 50%;
-}
+} */
 
 button img {
     width: 30px;
+}
+
+@media (min-width: 992px) { 
+    #feed {
+        width: 50%;
+    }
 }
