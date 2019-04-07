@@ -7,6 +7,7 @@ var express = require("express");
 var PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 if(process.env.ENV && process.env.ENV === 'production') {
     app.use((req, res, next) => {

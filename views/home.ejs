@@ -1,2 +1,39 @@
-<h1>Home Page</h1>
-<button><img src="../imgs/raisinghands.png"></button>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+
+<h1 class="text-center mt-5">Go Share Good</h1>
+<p class="text-center">Highlighting progress in the world.</p>
+
+<div id="feed" class="container my-5">
+    <div class="row">
+        <div class="col-2">
+            <button type="button" class="btn btn-outline-primary py-1">
+                <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+            </button>
+        </div>
+        <div class="col-10">
+            <p>India vows to reduce amount of plastic produced.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-2">
+            <button type="button" class="btn btn-outline-primary py-1">
+                <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+            </button>
+        </div>
+        <div class="col-10">
+            <p>India vows to reduce amount of plastic produced.</p>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach(button => button.addEventListener("click", toggleButton));
+
+    function toggleButton(e) {
+        this.classList.toggle("active");
+    }
+</script>
