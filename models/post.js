@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 // SCHEMA SETUP
 var postSchema = new mongoose.Schema({
     title: String,
-    image: String,
+    url: String,
     description: String,
     votes: Number
     // author: {

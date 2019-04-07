@@ -12,7 +12,7 @@ var indexRoutes          = require("./routes/index"),
 
 var PORT = process.env.PORT || 3000;
 
-var url = process.env.DATABASEURL || "mongodb://localhost:27017/posts"
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/gosharegood"
 mongoose.connect(url, { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");

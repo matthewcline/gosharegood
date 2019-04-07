@@ -1,12 +1,30 @@
 var express = require("express"),
-    router  = express.Router();
+    router  = express.Router(),
+    Post = require("../models/post");
 
 router.get("/", (req, res) => {
-    res.render("posts/index");
+    Post.find({}, (err, allPosts) => {
+        if(err) {
+            console.log("Error: " + err);
+        } else {
+            res.render("posts/index", {posts: allPosts});
+        }
+    });
 });
 
 router.post("/", (req, res) => {
-    res.send("you sent a post!");
+    Post.create(req.body.post, (err, newPost) => {
+        if(err) {
+            console.log("Error: " + err);
+        } else {
+            console.log(`newPost: ${newPost}`);
+            res.redirect("/posts");
+        }
+    });
 });
+
+router.get("/new", (req, res) => {
+    res.render("posts/new");
+})
 
 module.exports = router;
