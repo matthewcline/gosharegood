@@ -6,6 +6,7 @@ var express              = require("express"),
     bodyParser           = require("body-parser"),
     mongoose             = require("mongoose"),
     Post                 = require("./models/post");
+    seedDB               = require("./seeds");
 
 var indexRoutes          = require("./routes/index"),
     postRoutes           = require("./routes/posts");
@@ -17,6 +18,7 @@ mongoose.connect(url, { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+seedDB();
 
 if(process.env.ENV && process.env.ENV === 'production') {
     app.use((req, res, next) => {

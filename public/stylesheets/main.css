@@ -1,9 +1,19 @@
-/* #feed {
-    width: 50%;
-} */
+.url {
+    font-size: .8rem;
+}
 
-button img {
-    width: 30px;
+div.praisingHands img {
+    /* width: 100px; */
+    height: 50px;
+}
+
+div.praisingHands:hover {
+    background-color: blue;
+    transition: 0.15s linear;
+}
+
+.clickedPraisingHand {
+    background-color: blue;
 }
 
 @media (min-width: 992px) { 
