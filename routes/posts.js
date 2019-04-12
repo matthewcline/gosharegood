@@ -17,7 +17,6 @@ router.post("/", (req, res) => {
         if(err) {
             console.log("Error: " + err);
         } else {
-            console.log(`newPost: ${newPost}`);
             res.redirect("/posts");
         }
     });

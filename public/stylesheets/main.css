@@ -2,18 +2,27 @@
     font-size: .8rem;
 }
 
-div.praisingHands img {
-    /* width: 100px; */
+div img {
+    opacity: 0.2;
     height: 50px;
 }
 
-div.praisingHands:hover {
-    background-color: blue;
-    transition: 0.15s linear;
+/* div.praisingHands img:hover {
+    transition: 0.1s linear;
+    opacity: 1.0;
+    height: 60px;
+} */
+
+.hoveredPraisingHand {
+    transition: 0.1s linear;
+    opacity: 1.0;
+    height: 60px;
 }
 
 .clickedPraisingHand {
-    background-color: blue;
+    transition: 0.1s linear;
+    opacity: 1.0;
+    height: 50px;
 }
 
 @media (min-width: 992px) { 
