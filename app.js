@@ -5,7 +5,11 @@ var express              = require("express"),
     app                  = express(),
     bodyParser           = require("body-parser"),
     mongoose             = require("mongoose"),
-    Post                 = require("./models/post");
+    passport             = require("passport"),
+    LocalStrategy        = require("passport-local"),
+    methodOverride       = require("method-override"),
+    Post                 = require("./models/post"),
+    User                 = require("./models/user"),
     seedDB               = require("./seeds");
 
 var indexRoutes          = require("./routes/index"),
@@ -18,7 +22,20 @@ mongoose.connect(url, { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 seedDB();
+
+// passport configuration
+app.use(require("express-session")({
+    secret: "t3rc3s r3pus",
+    resave: false,
+    saveUninitialized: false 
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 if(process.env.ENV && process.env.ENV === 'production') {
     app.use((req, res, next) => {
