@@ -2,6 +2,11 @@
     font-size: .8rem;
 }
 
+div.votes {
+    font-size: .9rem;
+    color: gray;
+}
+
 div img {
     opacity: 0.2;
     height: 50px;

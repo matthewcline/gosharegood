@@ -3,7 +3,14 @@ var express = require("express"),
     Post = require("../models/post");
 
 router.get("/", (req, res) => {
-    Post.find({}, (err, allPosts) => {
+    // Post.find({}, (err, allPosts) => {
+    //     if(err) {
+    //         console.log("Error: " + err);
+    //     } else {
+    //         res.render("posts/index", {posts: allPosts});
+    //     }
+    // });
+    Post.find({}).sort('-votes').exec(function(err, allPosts) {
         if(err) {
             console.log("Error: " + err);
         } else {
