@@ -48,6 +48,13 @@ if(process.env.ENV && process.env.ENV === 'production') {
     });
 }
 
+app.use(function(req, res, next) {
+    res.locals.currentUser = req.user;
+    // res.locals.error = req.flash("error");
+    // res.locals.success = req.flash("success");
+    next();
+});
+
 app.use("/", indexRoutes);
 app.use("/posts", postRoutes);
 
