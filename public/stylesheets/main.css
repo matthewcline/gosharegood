@@ -7,16 +7,19 @@ div.votes {
     color: gray;
 }
 
+#gsgLogo {
+    height: 30px;
+    opacity: 1.0;
+}
+
+h1 img {
+    height: 100px;
+}
+
 div img {
     opacity: 0.5;
     height: 50px;
 }
-
-/* div.praisingHands img:hover {
-    transition: 0.1s linear;
-    opacity: 1.0;
-    height: 60px;
-} */
 
 .hoveredPraisingHand {
     transition: 0.1s linear;

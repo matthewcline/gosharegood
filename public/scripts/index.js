@@ -1,5 +1,4 @@
 var praisingHands = document.querySelectorAll(".praisingHands img");
-console.log(praisingHands);
 
 praisingHands.forEach(praisingHand => {
     praisingHand.addEventListener("mouseover", hoveredPraisingHand);
