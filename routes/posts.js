@@ -28,22 +28,39 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
     });
 });
 
-// add middleware
-router.put("/:id/votes", (req, res) => {
-    User.findById(currentUser._id, (err, foundUser) => {
+router.put("/:id/votes", middleware.isLoggedIn, (req, res) => {
+    User.findById(req.user._id, (err, foundUser) => {
         if(err) {
             console.log("error");
         } else {
-            console.log("found user: ", foundUser);
+            Post.findById(req.params.id, (err, foundPost) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    var votes = foundUser.votes;
+                    var votesDifference;
+                    console.log("foundUser.votes: ", foundUser.votes);
+                    var index = foundUser.votes.indexOf(foundPost._id);
+                    console.log("index: ", index);
+                    if(index === -1) {
+                        console.log("did not find post id object in foundUser.votes");
+                        votesDifference = 1;
+                        votes.push(foundPost._id);
+                        foundUser.votes
+                    } else {
+                        console.log("found post id object in foundUser.votes");
+                        votesDifference = -1;
+                        votes.splice(index, 1);
+                    }
+                    foundPost.votes = foundPost.votes + votesDifference;
+                    foundPost.save();
+                    foundUser.votes = votes;
+                    foundUser.save();
+                    res.redirect("/posts");
+                }
+            });
         }
     });
-    // Post.findByIdAndUpdate(req.params.id, req.body.comment, function(err, updatedComment) {
-    //     if(err) {
-    //         res.redirect("back");
-    //     } else {
-    //         res.redirect(`/campgrounds/${req.params.id}/`);
-    //     }
-    // });
 });
 
 router.get("/new", middleware.isLoggedIn, (req, res) => {

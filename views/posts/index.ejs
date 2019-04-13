@@ -30,7 +30,11 @@
             <div class="praisingHands text-center">
                 <form action="/posts/<%= post._id %>/votes?_method=PUT" method="POST">
                     <button type="submit" class="link-button">
-                        <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+                        <% if(currentUser && currentUser.votes.indexOf(post._id) !== -1) { %>
+                            <img class="clickedPraisingHand" src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+                        <% } else { %>
+                            <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+                        <% } %>
                     </button>
                 </form>
             </div>
