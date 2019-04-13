@@ -13,7 +13,8 @@ var express              = require("express"),
     seedDB               = require("./seeds");
 
 var indexRoutes          = require("./routes/index"),
-    postRoutes           = require("./routes/posts");
+    postRoutes           = require("./routes/posts"),
+    votesRoutes          = require("./routes/votes");
 
 var PORT = process.env.PORT || 3000;
 
@@ -57,6 +58,7 @@ app.use(function(req, res, next) {
 
 app.use("/", indexRoutes);
 app.use("/posts", postRoutes);
+app.use("/posts/:id/votes", votesRoutes);
 
 // possibly need to pass in process.env.IP for Heroku
 app.listen(PORT, () => {
