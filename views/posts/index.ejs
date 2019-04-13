@@ -20,28 +20,28 @@
         </div>
         <div class="col-2">
             <div class="praisingHands text-center">
-                <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+                <form action="/posts/<%= post._id %>/votes?_method=PUT" method="POST">
+                    <button type="submit" class="link-button">
+                        <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+                    </button>
+                </form>
             </div>
         </div>
         <div class="col-9 py-3">
             <% var title = post.title.length < 130 ? post.title : `${post.title.substring(0, 130)}...` %>
             <p class="mb-0"><%= title %></p>
         <% if(post.url){ %>
-            <a class="url" href="<%= post.url %>" target="_blank"><%= post.url.substring(0, 70) %>...</a>
+            <% var url = post.url.length < 70 ? post.url : `${post.url.substring(0, 70)}...` %>
+            <a class="url" href="<%= post.url %>" target="_blank"><%= url %></a>
         <% } else if(post.description) { %>
             <p><%= post.description.substring(0, 70) %>...</p>
         <% }%>
+            <p><%= post.author.username %></p>
         </div>
     </div>
     <hr class="my-0">
     <% }); %>
     
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.4.0.min.js"
-  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-  crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.js"></script>
-<script type="text/javascript" src="/scripts/index.js"></script>
 
 <% include ../partials/footer %>

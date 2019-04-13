@@ -4,6 +4,7 @@ var postSchema = new mongoose.Schema({
     title: String,
     url: String,
     description: String,
+    image: String,
     votes: Number,
     author: {
       id: {
@@ -12,12 +13,6 @@ var postSchema = new mongoose.Schema({
       },
       username: String
     }
-    // comments: [
-    //     {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //         ref: "Comment"
-    //     }
-    // ]
 });
 
 module.exports = mongoose.model("Post", postSchema);

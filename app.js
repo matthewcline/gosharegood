@@ -5,6 +5,7 @@ var express              = require("express"),
     app                  = express(),
     bodyParser           = require("body-parser"),
     mongoose             = require("mongoose"),
+    flash                = require("connect-flash"),
     passport             = require("passport"),
     LocalStrategy        = require("passport-local"),
     methodOverride       = require("method-override"),
@@ -14,7 +15,7 @@ var express              = require("express"),
 
 var indexRoutes          = require("./routes/index"),
     postRoutes           = require("./routes/posts"),
-    votesRoutes          = require("./routes/votes");
+    userRoutes          = require("./routes/users");
 
 var PORT = process.env.PORT || 3000;
 
@@ -24,7 +25,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
-seedDB();
+app.use(flash());
+// seedDB();
 
 // passport configuration
 app.use(require("express-session")({
@@ -51,14 +53,14 @@ if(process.env.ENV && process.env.ENV === 'production') {
 
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
-    // res.locals.error = req.flash("error");
-    // res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 
 app.use("/", indexRoutes);
 app.use("/posts", postRoutes);
-app.use("/posts/:id/votes", votesRoutes);
+app.use("/users/:id", userRoutes);
 
 // possibly need to pass in process.env.IP for Heroku
 app.listen(PORT, () => {

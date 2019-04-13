@@ -13,12 +13,21 @@ div.votes {
 }
 
 h1 img {
-    height: 100px;
+    height: 70px;
 }
 
 div img {
     opacity: 0.5;
     height: 50px;
+}
+
+.link-button {
+    background: none; 
+    border: none;
+}
+
+.link-button:focus {
+    outline: none;
 }
 
 .hoveredPraisingHand {

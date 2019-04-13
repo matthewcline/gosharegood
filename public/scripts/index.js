@@ -18,6 +18,7 @@ function clickedPraisingHand(e) {
     this.classList.toggle("clickedPraisingHand");
     if (this.classList.contains("clickedPraisingHand")) {
         $(this).transition('tada');
+        
     } else {
         this.classList.remove('hoveredPraisingHand');
     }
