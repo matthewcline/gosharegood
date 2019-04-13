@@ -12,6 +12,20 @@ div.votes {
     opacity: 1.0;
 }
 
+#goodImage {
+    height: 70px;
+    opacity: 1.0;
+}
+
+.btn {
+    border-color: #a8a8a8;
+}
+
+.btn:hover {
+    background-color: #0076bb;
+    border-color: #0076bb;
+}
+
 h1 img {
     height: 70px;
 }
