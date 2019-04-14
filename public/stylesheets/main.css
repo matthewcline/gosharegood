@@ -22,8 +22,12 @@ div.votes {
 }
 
 .btn:hover {
-    background-color: #0076bb;
-    border-color: #0076bb;
+    background-color: #0000FF;
+    border-color: #0000FF;
+}
+
+.required {
+    color: maroon;
 }
 
 h1 img {

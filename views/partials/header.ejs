@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/message.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <link rel="shortcut icon" href="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true" image/x-icon"/>
   </head>
@@ -41,14 +43,16 @@
       </nav>
   </div>
   <div class="container">
+    <div class="row justify-content-end mr-5">
       <% if(error && error.length > 0){ %>
-          <div class="alert alert-danger" role="alert">
+          <div class="ui compact message mr-0">
               <%= error %>
           </div>
       <% } %>
       <% if(success && success.length > 0){ %>
-          <div class="alert alert-success" role="alert">
+          <div class="ui compact message mr-0">
               <%= success %>
           </div>
       <% } %>
+    </div>
   </div>

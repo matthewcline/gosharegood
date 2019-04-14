@@ -1,13 +1,31 @@
 <% include ../partials/header %>
 
-<h1>New post</h1>
-
-<form action="/posts" method="POST">
-    <input type="text" name="post[title]" placeholder="title">
-    <input type="text" name="post[url]" placeholder="url">
-    <input type="text" name="post[description]" placeholder="description">
-    <input type="text" name="post[image]" placeholder="image">
-    <input type="submit" value="Add">
-</form>
+<div class="container mt-5" style="width: 50%;">
+    <h1 class="text-center">New Post</h1>
+    <form class="ui form" action="/posts" method="POST">
+        <div class="field">
+            <label>Title <span class="required">*</span></label>
+            <input type="text" name="post[title]" placeholder="Title" required>
+        </div>
+        <div class="field">
+            <label>URL</label>
+            <input type="text" name="post[url]" placeholder="URL">
+        </div>
+        <!-- <div class="field">
+            <label>Description</label>
+            <input type="text" name="post[description]" placeholder="Description">
+        </div> -->
+        <div class="field">
+            <label>Description</label>
+            <textarea rows="2" name="post[description]" placeholder="Description"></textarea>
+        </div>
+        <div class="field">
+            <label>Image URL</label>
+            <input type="text" name="post[image]" placeholder="Image URL">
+        </div>
+        <!-- <button class="ui button" type="submit">Submit</button> -->
+        <button type="submit" class="btn btn-outline-secondary mt-1">Submit</button>
+    </form>
+</div>
 
 <% include ../partials/footer %>
