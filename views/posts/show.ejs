@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-1">
+      <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+    </div>
+    <div class="col-7">
+      <div class="row">
+        <h1><%= post.title %></h1>
+      </div>
+      <div class="row">
+        <p>Posted by <%= post.author.username %></p>
+      </div>
+      <div class="row">
+        <a href="<%= post.url %>">
+          <p><%= post.url %></p>
+        </a>
+      </div>
+      <div class="row">
+        <p><%= post.description %></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <% if(post.image) { %>
+        <img src="<%= post.image %>">
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>

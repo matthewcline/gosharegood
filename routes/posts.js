@@ -19,11 +19,27 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
         id: req.user._id,
         username: req.user.username
     }
+    post.votes = 0;
     Post.create(post, (err, newPost) => {
         if(err) {
             console.log("Error: " + err);
         } else {
             res.redirect("/posts");
+        }
+    });
+});
+
+router.get("/new", middleware.isLoggedIn, (req, res) => {
+    res.render("posts/new");
+});
+
+router.get("/:id", (req, res) => {
+    Post.findById(req.params.id, (err, foundPost) => {
+        if(err || !foundPost) {
+            req.flash("error", "Post not found");
+            res.redirect("back");
+        } else {
+            res.render("posts/show", {post: foundPost});
         }
     });
 });
@@ -39,16 +55,12 @@ router.put("/:id/votes", middleware.isLoggedIn, (req, res) => {
                 } else {
                     var votes = foundUser.votes;
                     var votesDifference;
-                    console.log("foundUser.votes: ", foundUser.votes);
                     var index = foundUser.votes.indexOf(foundPost._id);
-                    console.log("index: ", index);
                     if(index === -1) {
-                        console.log("did not find post id object in foundUser.votes");
                         votesDifference = 1;
                         votes.push(foundPost._id);
                         foundUser.votes
                     } else {
-                        console.log("found post id object in foundUser.votes");
                         votesDifference = -1;
                         votes.splice(index, 1);
                     }
@@ -62,9 +74,5 @@ router.put("/:id/votes", middleware.isLoggedIn, (req, res) => {
         }
     });
 });
-
-router.get("/new", middleware.isLoggedIn, (req, res) => {
-    res.render("posts/new");
-})
 
 module.exports = router;

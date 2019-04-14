@@ -3,7 +3,7 @@ var praisingHands = document.querySelectorAll(".praisingHands img");
 praisingHands.forEach(praisingHand => {
     praisingHand.addEventListener("mouseover", hoveredPraisingHand);
     praisingHand.addEventListener("mouseout", unHoveredPraisingHand);
-    praisingHand.addEventListener("mousedown", clickedPraisingHand);
+    // praisingHand.addEventListener("mousedown", clickedPraisingHand);
 });
 
 function hoveredPraisingHand(e) {

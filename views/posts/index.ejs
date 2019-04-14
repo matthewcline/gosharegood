@@ -41,14 +41,16 @@
         </div>
         <div class="col-9 py-3">
             <% var title = post.title.length < 130 ? post.title : `${post.title.substring(0, 130)}...` %>
-            <p class="mb-0"><%= title %></p>
+            <a href="/posts/<%= post._id %>">
+                <p class="mb-0"><%= title %></p>
+            </a>
         <% if(post.url){ %>
             <% var url = post.url.length < 70 ? post.url : `${post.url.substring(0, 70)}...` %>
             <a class="url" href="<%= post.url %>" target="_blank"><%= url %></a>
         <% } else if(post.description) { %>
             <p><%= post.description.substring(0, 70) %>...</p>
         <% }%>
-            <p><%= post.author.username %></p>
+            <p class="postedBy mt-1">Posted by <%= post.author.username %></p>
         </div>
     </div>
     <hr class="my-0">

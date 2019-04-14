@@ -35,6 +35,11 @@ div img {
     height: 50px;
 }
 
+p.postedBy {
+    font-size: .7rem;
+    color: gray;
+}
+
 .link-button {
     background: none; 
     border: none;
