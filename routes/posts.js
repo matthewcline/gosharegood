@@ -67,8 +67,13 @@ router.put("/:id/votes", middleware.isLoggedIn, (req, res) => {
                     foundPost.votes = foundPost.votes + votesDifference;
                     foundPost.save();
                     foundUser.votes = votes;
-                    foundUser.save();
-                    res.redirect("/posts");
+                    foundUser.save((err) => {
+                        if(err) {
+                            console.log(err);
+                        } else {
+                            res.redirect("/posts");
+                        }
+                    });
                 }
             });
         }

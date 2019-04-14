@@ -26,6 +26,10 @@ div.votes {
     border-color: #0000FF;
 }
 
+.containerHalfWidth {
+    width: 50%;
+}
+
 .required {
     color: maroon;
 }
@@ -34,7 +38,7 @@ h1 img {
     height: 70px;
 }
 
-div img {
+button img {
     opacity: 0.5;
     height: 50px;
 }
