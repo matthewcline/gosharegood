@@ -13,7 +13,7 @@
     <div class="row mt-2 text-center">
         <div class="col-12">
             <a href="/posts/new">
-                <button type="button" class="btn btn-outline-secondary">Add Post</button>
+                <button id="addBtn" type="button" class="btn btn-outline-secondary">Add Post</button>
             </a>
         </div>
     </div>
@@ -24,19 +24,19 @@
             <div class="votes text-center"><%= post.votes || 0 %></div>
         </div>
         <div class="col-2">
-            <div class="praisingHands text-center">
+            <div class="text-center">
                 <form action="/posts/<%= post._id %>/votes?_method=PUT" method="POST">
                     <button type="submit" class="link-button">
                         <% if(currentUser && currentUser.votes.indexOf(post._id) !== -1) { %>
-                            <img class="clickedPraisingHand" src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+                            <img class="praisingHand clickedPraisingHand" src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
                         <% } else { %>
-                            <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+                            <img class="praisingHand" src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
                         <% } %>
                     </button>
                 </form>
             </div>
         </div>
-        <div class="col-9 py-3">
+        <div class="col-9 pt-3">
             <% var title = post.title.length < 130 ? post.title : `${post.title.substring(0, 130)}...` %>
             <a href="/posts/<%= post._id %>">
                 <p class="mb-0"><%= title %></p>
@@ -58,6 +58,8 @@
                     const days = Math.floor(minutes/1440);
                     if(seconds < 3600) {
                         return `${minutes} minutes ago`;
+                    } else if(seconds < 7200) {
+                        return "1 hour ago";
                     } else if(seconds < 86400) {
                         return `${hours} hours ago`;
                     } else if(seconds < 172800) {

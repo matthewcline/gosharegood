@@ -17,11 +17,11 @@ div.votes {
     opacity: 1.0;
 }
 
-.btn {
+#addBtn {
     border-color: #a8a8a8;
 }
 
-.btn:hover {
+#addBtn:hover {
     background-color: #0000FF;
     border-color: #0000FF;
 }
@@ -57,7 +57,7 @@ p.postedBy {
     outline: none;
 }
 
-.hoveredPraisingHand {
+.praisingHand:hover {
     transition: 0.1s linear;
     opacity: 1.0;
     height: 60px;

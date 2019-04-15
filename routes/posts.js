@@ -72,7 +72,7 @@ router.put("/:id/votes", middleware.isLoggedIn, (req, res) => {
                         if(err) {
                             console.log(err);
                         } else {
-                            res.redirect("/posts");
+                            res.redirect("back");
                         }
                     });
                 }
@@ -83,7 +83,6 @@ router.put("/:id/votes", middleware.isLoggedIn, (req, res) => {
 
 router.get("/:id/edit", middleware.checkPostOwnership, (req, res) => {
     Post.findById(req.params.id, (err, foundPost) => {
-        console.log("foundPost here: ", foundPost);
         res.render("posts/edit", {post: foundPost});
     });
 });
@@ -94,7 +93,6 @@ router.put("/:id", middleware.checkPostOwnership, (req, res) => {
             console.log(err);
             res.redirect("/posts")
         } else {
-            console.log(updatedPost);
             res.redirect(`/posts/${req.params.id}`);
         }
     });

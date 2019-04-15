@@ -83,16 +83,16 @@ function seedDB(){
             console.log(err);
         } else {
         console.log("removed posts!");
-            data.forEach(seed => {
-                Post.create(seed, function(err, post){
-                    if(err){
-                        console.log(err);
-                    } else {
-                        console.log("added a post");
-                        post.save();
-                    }
-                });
-            });
+            // data.forEach(seed => {
+            //     Post.create(seed, function(err, post){
+            //         if(err){
+            //             console.log(err);
+            //         } else {
+            //             console.log("added a post");
+            //             post.save();
+            //         }
+            //     });
+            // });
         }
     });
 }
