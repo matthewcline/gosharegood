@@ -20,6 +20,7 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
         username: req.user.username
     }
     post.votes = 0;
+    post.timeCreated = Date.now();
     Post.create(post, (err, newPost) => {
         if(err) {
             console.log("Error: " + err);

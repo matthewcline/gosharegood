@@ -1,8 +1,5 @@
 <% include ../partials/header %>
 
-<!-- <h1 class="text-center mt-0">Go Share</h1>
-<h1 class="text-center"><img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/good.png?raw=true"></h1> 
-<p class="text-center mt-4">Highlighting stories of progress around the world.</p> -->
 <div id="feed" class="container mt-2 mb-5">
     <div class="row justify-content-center">
         <h1>Go Share</h1>
@@ -50,7 +47,30 @@
         <% } else if(post.description) { %>
             <p><%= post.description.substring(0, 70) %>...</p>
         <% }%>
-            <p class="postedBy mt-1">Posted by <%= post.author.username %></p>
+            <p class="postedBy mt-1">
+                Posted by <%= post.author.username %>
+                <%  
+                function getTimeSinceCreated(timeCreated) {
+                    const milliSeconds = Date.now() - timeCreated;
+                    const seconds = Math.floor(milliSeconds/1000);
+                    const minutes = Math.floor(seconds/60);
+                    const hours = Math.floor(minutes/60);
+                    const days = Math.floor(minutes/1440);
+                    if(seconds < 3600) {
+                        return `${minutes} minutes ago`;
+                    } else if(seconds < 86400) {
+                        return `${hours} hours ago`;
+                    } else if(seconds < 172800) {
+                        return  "1 day ago";
+                    } else {
+                        return `${days} days ago`
+                    }
+                } 
+                %>
+                <% if(post.timeCreated) { %>
+                <span class="ml-2"><%= getTimeSinceCreated(post.timeCreated) || "" %></span>
+                <% } %>
+            </p>
         </div>
     </div>
     <hr class="my-0">

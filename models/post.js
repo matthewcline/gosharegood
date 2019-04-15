@@ -6,6 +6,7 @@ var postSchema = new mongoose.Schema({
     description: String,
     image: String,
     votes: Number,
+    timeCreated: Number,
     author: {
       id: {
         type: mongoose.Schema.Types.ObjectId,
