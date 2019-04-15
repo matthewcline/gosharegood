@@ -3,15 +3,29 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-1">
-      <form action="/posts/<%= post._id %>/votes?_method=PUT" method="POST">
-        <button type="submit" class="link-button">
-            <% if(currentUser && currentUser.votes.indexOf(post._id) !== -1) { %>
-                <img class="clickedPraisingHand" src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
-            <% } else { %>
-                <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
-            <% } %>
-        </button>
-      </form>
+      <div class="row">
+        <form action="/posts/<%= post._id %>/votes?_method=PUT" method="POST">
+          <button type="submit" class="link-button">
+              <% if(currentUser && currentUser.votes.indexOf(post._id) !== -1) { %>
+                  <img class="clickedPraisingHand" src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+              <% } else { %>
+                  <img src="https://github.com/matthewcline/gosharegood/blob/master/imgs/raisinghands.png?raw=true">
+              <% } %>
+          </button>
+        </form>
+      </div>
+      <% if(currentUser && post.author.id.equals(currentUser._id)) { %>
+      <div class="row">
+        <a href="/posts/<%= post._id %>/edit">
+          <button>Edit</button>
+        </a>
+      </div>
+      <div class="row">
+        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete">
+        </form>
+      </div>
+      <% } %>
     </div>
     <div class="col-4">
       <div class="row">
