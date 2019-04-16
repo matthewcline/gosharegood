@@ -63,6 +63,19 @@ p.postedBy {
     height: 60px;
 }
 
+.postLinkTitle {
+    color: #212529;
+}
+
+.postLinkTitle:hover {
+    text-decoration: none;
+    color: gray;
+}
+
+.postLink {
+    color: #2170be;
+}
+
 .clickedPraisingHand {
     transition: 0.1s linear;
     opacity: 1.0;

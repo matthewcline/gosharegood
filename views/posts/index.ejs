@@ -38,12 +38,12 @@
         </div>
         <div class="col-9 pt-3">
             <% var title = post.title.length < 130 ? post.title : `${post.title.substring(0, 130)}...` %>
-            <a href="/posts/<%= post._id %>">
+            <a class="postLinkTitle" href="/posts/<%= post._id %>">
                 <p class="mb-0"><%= title %></p>
             </a>
         <% if(post.url){ %>
             <% var url = post.url.length < 70 ? post.url : `${post.url.substring(0, 70)}...` %>
-            <a class="url" href="<%= post.url %>" target="_blank"><%= url %></a>
+            <a class="url postLink" href="<%= post.url %>" target="_blank"><%= url %></a>
         <% } else if(post.description) { %>
             <p><%= post.description.substring(0, 70) %>...</p>
         <% }%>
