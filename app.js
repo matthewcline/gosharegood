@@ -17,7 +17,7 @@ var indexRoutes          = require("./routes/index"),
     postRoutes           = require("./routes/posts"),
     userRoutes          = require("./routes/users");
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/gosharegood";
 mongoose.connect(url, { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
