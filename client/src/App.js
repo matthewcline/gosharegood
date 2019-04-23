@@ -1,24 +1,20 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = { posts: [] };
+
+  componentDidMount() {
+    fetch('/api/posts')
+      .then(res => res.json())
+      .then(customers => this.setState({customers}, () => console.log('Customers fetched...', customers)));
+  }
+
+  render() {
+    return (
+      <div>{this.state.posts.length}</div>
+    );
+  }
 }
 
 export default App;

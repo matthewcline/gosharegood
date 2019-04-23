@@ -15,6 +15,7 @@ var express              = require("express"),
 
 var indexRoutes          = require("./routes/index"),
     postRoutes           = require("./routes/posts"),
+    apiRoutes           = require("./routes/api"),
     userRoutes          = require("./routes/users");
 
 var PORT = process.env.PORT || 3001;
@@ -59,6 +60,7 @@ app.use(function(req, res, next) {
 
 app.use("/", indexRoutes);
 app.use("/posts", postRoutes);
+app.use("/api", apiRoutes);
 app.use("/users/:id", userRoutes);
 
 // possibly need to pass in process.env.IP for Heroku
