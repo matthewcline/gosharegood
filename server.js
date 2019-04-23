@@ -3,6 +3,7 @@
 // const instead of var?
 var express              = require("express"),
     app                  = express(),
+    cors                 = require("cors"),
     bodyParser           = require("body-parser"),
     mongoose             = require("mongoose"),
     flash                = require("connect-flash"),
@@ -21,6 +22,7 @@ var indexRoutes          = require("./routes/index"),
 var PORT = process.env.PORT || 3001;
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/gosharegood";
 mongoose.connect(url, { useNewUrlParser: true });
+app.use(cors());    // TODO: add whitelist for cors
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

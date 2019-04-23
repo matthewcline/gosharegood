@@ -1,31 +1,16 @@
-// import React, { Component } from 'react';
+import './PostList.css'
+import React from 'react';
+import Post from './Post';
 
-// class PostList extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       customers: []
-//     };
-//   }
+const PostList = props => {
+  const posts = props.posts.map((post) => { // it's possible to use destructuring right here
+    return <Post key={post._id} post={post} />
+    // Note: assign a key to the root element
+    // So if the img tag was wrapped in a div, then the key would be an 
+    // attribute on the div element instead of the img tag
+  });
+  console.log("posts here: ", posts);
+  return <div className="post-list">{posts}</div>;
+}
 
-//   componentDidMount() {
-//     fetch('/api/customers')
-//       .then(res => res.json())
-//       .then(customers => this.setState({customers}, () => console.log('Customers fetched...', customers)));
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <h2>Customers</h2>
-//         <ul>
-//         {this.state.customers.map(customer => 
-//           <li key={customer.id}>{customer.firstName} {customer.lastName}</li>
-//         )}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Customers;
+export default PostList;

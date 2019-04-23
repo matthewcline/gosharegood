@@ -8,7 +8,7 @@ router.get("/posts", (req, res) => {
         if(err) {
             console.log("Error: " + err);
         } else {
-            res.render("posts/index", {posts: allPosts});
+            res.json(allPosts);
         }
     });
 });
