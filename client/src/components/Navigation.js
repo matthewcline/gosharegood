@@ -3,30 +3,34 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavItem from 'react-bootstrap/NavItem';
 import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import About from './About';
+import { LinkContainer } from "react-router-bootstrap";
 
 const Navigation = ({location}) => {
     return (
       <Navbar expand="lg">
-        <Navbar.Brand href="/">
-          <Image 
-            src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsg.png" 
-            fluid
-            style={{height: '30px'}}
-          />
+        <Navbar.Brand>
+          <Link to="/">
+            <Image 
+              src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsg.png" 
+              fluid
+              style={{height: '30px'}}
+            />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
           <Nav className="mr-auto">
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="#link">Signup</Nav.Link>
+            <LinkContainer to="/about">
+              <Button>About</Button>
+            </LinkContainer>
+            <LinkContainer to="/login">
+              <Button>Login</Button>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/login">Login</Link>
       </Navbar>
     );
 }
