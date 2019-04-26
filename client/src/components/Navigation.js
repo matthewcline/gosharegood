@@ -24,19 +24,16 @@ const Navigation = ({location}) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
           <Nav>
-            <LinkContainer to="/about" className="link-container">
+            <LinkContainer to="/about" className="link-container" style={{marginLeft: '15px'}}>
               <NavItem>About</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/login" className="link-container">
-              <NavItem>Login</NavItem>
             </LinkContainer>
           </Nav>
           <Nav>
-            <LinkContainer to="/about" className="link-container">
-              <NavItem>About</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/login" className="link-container">
+            <LinkContainer to="/login" className="link-container" style={{marginRight: '25px'}}>
               <NavItem>Login</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/signup" className="link-container">
+              <NavItem>Signup</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
