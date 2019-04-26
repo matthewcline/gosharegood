@@ -7,10 +7,11 @@ import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import About from './About';
 import { LinkContainer } from "react-router-bootstrap";
+import './Navigation.css';
 
 const Navigation = ({location}) => {
     return (
-      <Navbar expand="lg">
+      <Navbar expand="lg" className="navbar">
         <Navbar.Brand>
           <Link to="/">
             <Image 
@@ -22,12 +23,20 @@ const Navigation = ({location}) => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-          <Nav className="mr-auto">
-            <LinkContainer to="/about">
-              <Button>About</Button>
+          <Nav>
+            <LinkContainer to="/about" className="link-container">
+              <NavItem>About</NavItem>
             </LinkContainer>
-            <LinkContainer to="/login">
-              <Button>Login</Button>
+            <LinkContainer to="/login" className="link-container">
+              <NavItem>Login</NavItem>
+            </LinkContainer>
+          </Nav>
+          <Nav>
+            <LinkContainer to="/about" className="link-container">
+              <NavItem>About</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/login" className="link-container">
+              <NavItem>Login</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

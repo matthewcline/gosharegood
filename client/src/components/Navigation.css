@@ -1,0 +1,16 @@
+.navbar {
+  color: rgb(104, 104, 104);
+}
+
+.link-container {
+  margin-right: 1px;
+  cursor: pointer;
+}
+
+.link-container:hover {
+  color: rgb(52,77,252);
+}
+
+.active {
+  color: rgb(22,32,64);
+}

@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Home from './Home';
 import About from './About';
 import Login from './Login';
+import './App.css';
 
 class App extends React.Component {
   render() {
