@@ -11,12 +11,12 @@ const Login = () => {
       <Form action="http://localhost:3001/login" method="POST">
         <Form.Group controlId="formBasicUsername">
           <Form.Label>Username</Form.Label>
-          <Form.Control type="text" name="username" placeholder="Enter username" required/>
+          <Form.Control type="text" name="username" placeholder="username" required/>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" name="password" placeholder="Password" />
+          <Form.Control type="password" name="password" placeholder="password" />
         </Form.Group>
         
         <Button variant="primary" type="submit">
