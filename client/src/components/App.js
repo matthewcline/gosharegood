@@ -17,6 +17,7 @@ class App extends React.Component {
           <Navigation />
 
           <Route exact path="/" component={Home}/>
+          <Route path="/posts" component={Home}/>
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
