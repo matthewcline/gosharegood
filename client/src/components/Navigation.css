@@ -3,6 +3,10 @@
   margin: 25px auto;
 }
 
+.nav-container {
+  width: 75%;
+}
+
 .link-container {
   margin-right: 1px;
   cursor: pointer;
@@ -15,3 +19,4 @@
 .active {
   color: rgb(22,32,64);
 }
+

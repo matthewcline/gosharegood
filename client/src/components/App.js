@@ -13,7 +13,6 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Container className="container">
           <Navigation />
 
           <Route exact path="/" component={Home}/>
@@ -21,7 +20,6 @@ class App extends React.Component {
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-        </Container>
       </Router>
     );
   }
