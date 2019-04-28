@@ -7,7 +7,7 @@ import './Login.css';
 const Login = () => {
   return (
     <Container className="login-container">
-      <h1 className="text-center">Login</h1>
+      <h1 className="text-center" style={{marginTop: '100px'}}>Login</h1>
       <Form action="http://localhost:3001/login" method="POST">
         <Form.Group controlId="formBasicUsername">
           <Form.Label>Username</Form.Label>
