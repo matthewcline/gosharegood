@@ -1,12 +1,8 @@
 .login-container {
-  width: 100%;
   margin: 50px auto;
-  background-color: rgb(90, 201, 186);
-  border-radius: 50%;
   height: 100vh;
-}
-
-.login-container form {
+  background-image: url("https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/login_circle.png");
+  background-image: no-repeat;
 }
 
 .login-container h1 {
