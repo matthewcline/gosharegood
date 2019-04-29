@@ -22,7 +22,7 @@ var indexRoutes          = require("./routes/index"),
 var PORT = process.env.PORT || 3001;
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/gosharegood";
 mongoose.connect(url, { useNewUrlParser: true });
-app.use(cors());    // TODO: add whitelist for cors
+app.use(cors({credentials: true, origin: "http://localhost:3000"}));    // TODO: add whitelist for cors
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -33,6 +33,9 @@ app.use(flash());
 // passport configuration
 app.use(require("express-session")({
     secret: "t3rc3s r3pus",
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+    },
     resave: false,
     saveUninitialized: false 
 }));

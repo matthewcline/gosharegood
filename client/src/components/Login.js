@@ -1,12 +1,13 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './Login.css';
+import axios from 'axios';
+// axios.defaults.withCredentials = true;
 
 class Login extends React.Component {
   state = { username: '', password: '', redirectTo: null };
@@ -19,11 +20,11 @@ class Login extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const params = new URLSearchParams();
+    params.append('username', this.state.username);
+    params.append('password', this.state.password);
     axios
-      .post('http://localhost:3001/login', {
-        username: this.state.username,
-        password: this.state.password
-      })
+      .post('http://localhost:3001/login', params)
       .then(response => {
         console.log('login response: ')
         console.log(response)

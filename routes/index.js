@@ -7,9 +7,9 @@ router.get("/", (req, res) => {
     res.redirect("/posts");
 });
 
-router.get("/signup", (req, res) => {
-    res.render("signup");
-});
+// router.get("/signup", (req, res) => {
+//     res.render("signup");
+// });
 
 router.post("/signup", (req, res) => {
     var newUser = new User({username: req.body.username});
@@ -25,20 +25,28 @@ router.post("/signup", (req, res) => {
     });
 });
 
-router.get("/login", (req, res) => {
-    res.render("login");
-});
+// router.get("/login", (req, res) => {
+//     res.render("login");
+// });
+
+router.get('/user', (req, res, next) => {
+    console.log("req.user: ", req.user);
+    if (req.user) {
+        res.json({ user: req.user })
+    } else {
+        res.json({ user: null })
+    }
+})
 
 router.post("/login", passport.authenticate("local"), 
     (req, res) => {
-        res.status(200).send(`req.session: ${req.session.passport.user}`);
+        res.status(200).json({ username: req.user.username });
     }
 );
 
 router.get("/logout", function(req, res) {
     req.logout();
     req.flash("success", "Logged you out.");
-    res.redirect("/posts");
 });
 
 module.exports = router;

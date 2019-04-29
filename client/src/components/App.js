@@ -8,9 +8,27 @@ import About from './About';
 import Login from './Login';
 import Signup from './Signup';
 import './App.css';
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 class App extends React.Component {
   state = { loggedIn: false, username: null };
+
+  componentDidMount() {
+    this.getUser();
+  }
+
+  getUser = () => {
+    axios
+      .get('http://localhost:3001/user')
+      .then(response => {
+        if (response.data.user) {
+          this.setState({ loggedIn: true, username: response.data.user.username })
+        }
+      }).catch(err => {
+        console.log(`error getting user: ${err}`);
+      });
+  }
 
   updateUser = (stateObj) => {
     this.setState(stateObj);
