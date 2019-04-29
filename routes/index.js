@@ -29,12 +29,11 @@ router.get("/login", (req, res) => {
     res.render("login");
 });
 
-router.post("/login", passport.authenticate("local", 
-    {   
-        successRedirect: "/posts",
-        failureRedirect: "/login"
-    }), (req, res) => {
-});
+router.post("/login", passport.authenticate("local"), 
+    (req, res) => {
+        res.status(200).send(`req.session: ${req.session.passport.user}`);
+    }
+);
 
 router.get("/logout", function(req, res) {
     req.logout();
