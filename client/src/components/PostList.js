@@ -9,7 +9,6 @@ const PostList = props => {
     // So if the img tag was wrapped in a div, then the key would be an 
     // attribute on the div element instead of the img tag
   });
-  console.log("posts here: ", posts);
   return <div className="post-list">{posts}</div>;
 }
 
