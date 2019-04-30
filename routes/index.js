@@ -44,9 +44,11 @@ router.post("/login", passport.authenticate("local"),
     }
 );
 
-router.get("/logout", function(req, res) {
+router.get("/logout", (req, res) => {
+    const username = req.user.username;
     req.logout();
-    req.flash("success", "Logged you out.");
+    res.status(200).send(`logged ${username} out`);
+    // req.flash("success", "Logged you out.");
 });
 
 module.exports = router;

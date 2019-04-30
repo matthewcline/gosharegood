@@ -39,7 +39,11 @@ class App extends React.Component {
     console.log("this.state.username: ", this.state.username);
     return (
       <Router>
-          <Navigation />
+          <Navigation 
+            updateUser={this.updateUser} 
+            loggedIn={this.state.loggedIn} 
+            username={this.state.username} 
+          />
           <Route exact path='/' component={Home}/>
           <Route path='/posts' component={Home}/>
           <Route path='/about' component={About} />
