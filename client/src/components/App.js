@@ -7,7 +7,9 @@ import Home from './Home';
 import About from './About';
 import Login from './Login';
 import Signup from './Signup';
+import AddPostForm from './AddPostForm';
 import './App.css';
+import { AnimatedRoute } from 'react-router-transition';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -45,13 +47,15 @@ class App extends React.Component {
             username={this.state.username} 
           />
           <Route exact path='/' component={Home}/>
-          <Route path='/posts' component={Home}/>
+          <Route exact path='/posts' component={Home}/>
+          <Route path='/posts/new' component={AddPostForm}/>
           <Route path='/about' component={About} />
           <Route 
             path='/login'
             render={() => <Login updateUser={this.updateUser} />}
           />
           <Route path='/signup' component={Signup} />
+          {/* <Route path='/posts/new' component={AddPostForm} /> */}
       </Router>
     );
   }

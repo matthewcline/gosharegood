@@ -14,7 +14,12 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", middleware.isLoggedIn, (req, res) => {
-    var post = req.body.post;
+    var post = {
+        title: req.body.title,
+        url: req.body.url,
+        description: req.body.description,
+    }
+    console.log("post: ", post);
     post.author = {
         id: req.user._id,
         username: req.user.username
@@ -25,7 +30,7 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
         if(err) {
             console.log("Error: " + err);
         } else {
-            res.redirect("/posts");
+            res.send("successfully created post");
         }
     });
 });

@@ -1,8 +1,10 @@
 import './PostList.css'
 import React from 'react';
 import Post from './Post';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 import axios from 'axios';
-import AddPostButton from './AddPostButton';
 
 class PostList extends React.Component {
 
@@ -19,7 +21,13 @@ class PostList extends React.Component {
   render() {
     return (
       <div>
-        <AddPostButton />
+        {/* <button className="add-post-btn"> */}
+          <Link to="/posts/new">
+            <Fab color="secondary" aria-label="Add" className="add-post-btn">
+              <AddIcon />
+            </Fab>
+          </Link>
+        {/* </button> */}
         <div className="post-list">{this.getPosts()}</div>
       </div>
     );

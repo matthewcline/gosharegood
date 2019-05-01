@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import About from './About';
 import { LinkContainer } from "react-router-bootstrap";
 import './Navigation.css';
+import { AnimatedRoute } from 'react-router-transition';
 import axios from 'axios';
 
 class Navigation extends React.Component {
