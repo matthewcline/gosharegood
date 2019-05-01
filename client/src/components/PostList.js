@@ -1,6 +1,9 @@
 import './PostList.css'
 import React from 'react';
 import Post from './Post';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -20,16 +23,22 @@ class PostList extends React.Component {
 
   render() {
     return (
-      <div class="post-list-page">
-        {/* <button className="add-post-btn"> */}
+      <Container>
+        <div className="text-center">
           <Link to="/posts/new">
             <Fab color="secondary" aria-label="Add" className="add-post-btn">
               <AddIcon />
             </Fab>
           </Link>
-        {/* </button> */}
-        <div className="post-list">{this.getPosts()}</div>
-      </div>
+        </div>
+        <Container className="post-list">
+          <Row>
+            <Col xs={12}>
+              {this.getPosts()}
+            </Col>
+          </Row>
+        </Container>
+      </Container>
     );
   }
 }

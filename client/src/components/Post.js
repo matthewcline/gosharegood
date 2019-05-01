@@ -7,15 +7,15 @@ import Image from 'react-bootstrap/Image';
 
 const Post = props => {
   return (
-    <Container className="post">
-      <Row className="justify-content-center align-items-center">
-        <Col xs={2}>
+    <Container className="post rounded-pill">
+      <Row className="justify-content-between align-items-center">
+        <Col xs={3} md={2}>
           <div>
             <Image src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" fluid />
             <div className="text-center">{props.post.votes}</div>
           </div>
         </Col>
-        <Col xs={10}>
+        <Col xs={9} md={10}>
           <h5>{props.post.title}</h5>
           <p>Posted by {props.post.author.username}</p>
           <p>{props.post.description}</p>

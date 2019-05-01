@@ -1,5 +1,6 @@
 import React from 'react';
 import PostList from './PostList';
+import './Home.css'
 
 class Home extends React.Component {
   state = { posts: [] };
@@ -12,7 +13,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <PostList posts={this.state.posts} />
+      <div className="home">
+        <PostList posts={this.state.posts} />
+      </div>
     );
   }
 }

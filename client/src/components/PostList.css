@@ -1,10 +1,20 @@
 .post-list {
-  margin: 50px auto 10px auto;
-  width: 60rem;
-  height: 100vh;
-  border: #fe9f23 1px solid;
+  /* margin: 50px auto 10px auto; */
+  /* width: 60rem; */
+  /* height: 100vh; */
+  /* border: #2afe23 1px solid; */
+  padding: 0;
+  /* width: 60%; */
 }
 
-.post-list-page {
-  background-color: rgba(240, 85, 114, 0.5);
+@media only screen and (min-width: 992px) {
+  .post-list {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .post-list {
+    width: 60%;
+  }
 }
