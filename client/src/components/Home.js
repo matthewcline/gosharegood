@@ -14,11 +14,18 @@ class Home extends React.Component {
       .then(posts => this.setState({ posts }));
   }
 
+  addPostClicked = (event) => {
+    event.preventDefault();
+    if (!this.props.loggedIn) {
+      console.log("not logged in!");
+    }
+  }
+
   render() {
     return (
       <div className="home">
         <div className="text-center add-post-btn">
-          <Link to="/posts/new">
+          <Link to="/posts/new" >
             <Fab color="secondary" aria-label="Add">
               <AddIcon />
             </Fab>

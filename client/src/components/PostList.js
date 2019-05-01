@@ -23,7 +23,7 @@ class PostList extends React.Component {
 
   render() {
     return (
-      <Container className="post-list">
+      <Container className="post-list rounded">
         <Row>
           <Col xs={12}>
             {this.getPosts()}

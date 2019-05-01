@@ -3,18 +3,19 @@
   /* width: 60rem; */
   /* height: 100vh; */
   /* border: #2afe23 1px solid; */
-  padding: 0;
+  /* padding: 0; */
   /* width: 60%; */
+  background-color: rgba(0, 176, 255, 1.0);
 }
 
-@media only screen and (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
   .post-list {
-    width: 70%;
+    width: 100%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .post-list {
-    width: 50%;
+    width: 100%;
   }
-}
+} */

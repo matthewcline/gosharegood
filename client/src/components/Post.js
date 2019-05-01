@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image';
 
 const Post = props => {
   return (
-    <Container className="post rounded-pill">
+    <Container className="post rounded">
       <Row className="justify-content-between align-items-center">
         <Col xs={3} md={2}>
           <div>

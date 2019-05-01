@@ -1,6 +1,18 @@
 .post {
   /* margin: auto; */
   /* width: 50rem; */
-  margin: 15px 0;
+  margin: 15px auto;
   background-color: rgba(255, 255, 255, 1);
+}
+
+@media only screen and (min-width: 992px) {
+  .post {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .post {
+    width: 50%;
+  }
 }

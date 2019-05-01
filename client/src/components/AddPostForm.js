@@ -45,9 +45,9 @@ class AddPostForm extends React.Component {
   }
 
   render() {
-    console.log(this.state.title);
-    console.log(this.state.url);
-    console.log(this.state.description);
+    if (!this.props.loggedIn) {
+      return <h1>You must be logged in to do that</h1>
+    }
     if (this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
