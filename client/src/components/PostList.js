@@ -20,7 +20,7 @@ class PostList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="post-list-page">
         {/* <button className="add-post-btn"> */}
           <Link to="/posts/new">
             <Fab color="secondary" aria-label="Add" className="add-post-btn">

@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image';
 
 const Post = props => {
   return (
-    <Container style={{width: '60%'}}>
+    <Container className="post">
       <Row className="justify-content-center align-items-center">
         <Col xs={2}>
           <div>
