@@ -1,13 +1,18 @@
 .home {
-  /* background-image: url("https://github.com/matthewcline/gosharegood/blob/master/client/public/imgs/about_circle.png?raw=true"); */
+  background-image: url("https://github.com/matthewcline/gosharegood/blob/master/client/public/imgs/home_background.png?raw=true");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position-y: 0%;
+  background-size: contain;
+  /* background-position-y: 0%; */
   background-attachment: fixed;
   /* background-color: rgba(240, 85, 114, 0.5); */
   /* background-color: rgba(77, 208, 225, 0.5); */
-  background-color: rgba(129, 212, 250, 0.5);
+  /* background-color: rgba(129, 212, 250, 0.5); */
+  background-color: rgba(0, 176, 255, 1);
   /* background-color: rgba(79, 195, 247, 0.5); */
   min-height: 100vh;
+}
+
+.add-post-btn {
+  padding-top: 10px;
 }

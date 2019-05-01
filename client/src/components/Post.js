@@ -19,7 +19,7 @@ const Post = props => {
           <h5>{props.post.title}</h5>
           <p>Posted by {props.post.author.username}</p>
           <p>{props.post.description}</p>
-          <a href={props.post.url} target="_blank">View Story</a>
+          {/* <a href={props.post.url} target="_blank">View Story</a> */}
         </Col>
       </Row>
     </Container>

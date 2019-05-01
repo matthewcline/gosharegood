@@ -9,12 +9,12 @@
 
 @media only screen and (min-width: 992px) {
   .post-list {
-    width: 80%;
+    width: 70%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .post-list {
-    width: 60%;
+    width: 50%;
   }
 }

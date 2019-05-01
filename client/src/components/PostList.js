@@ -23,21 +23,12 @@ class PostList extends React.Component {
 
   render() {
     return (
-      <Container>
-        <div className="text-center">
-          <Link to="/posts/new">
-            <Fab color="secondary" aria-label="Add" className="add-post-btn">
-              <AddIcon />
-            </Fab>
-          </Link>
-        </div>
-        <Container className="post-list">
-          <Row>
-            <Col xs={12}>
-              {this.getPosts()}
-            </Col>
-          </Row>
-        </Container>
+      <Container className="post-list">
+        <Row>
+          <Col xs={12}>
+            {this.getPosts()}
+          </Col>
+        </Row>
       </Container>
     );
   }
