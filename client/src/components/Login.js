@@ -1,16 +1,21 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import InfoMessage from './InfoMessage';
 import './Login.css';
-import axios from 'axios';
-// axios.defaults.withCredentials = true;
 
 class Login extends React.Component {
-  state = { username: '', password: '', redirectTo: null };
+  state = { 
+    username: '', 
+    password: '', 
+    redirectTo: null,
+    errorMessage: null,
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -20,26 +25,30 @@ class Login extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const params = new URLSearchParams();
-    params.append('username', this.state.username);
-    params.append('password', this.state.password);
-    axios
-      .post('http://localhost:3001/login', params)
-      .then(response => {
-        console.log('login response: ')
-        console.log(response)
-        if (response.status === 200) {
-            this.props.updateUser({
-                loggedIn: true,
-                username: response.data.username
-            })
-            this.setState({
-                redirectTo: '/'
-            })
-        }
-      }).catch(err => {
-        console.log(`error logging in: ${err}`);
-      });
+    if (this.state.username.length === 0) {
+      this.setState({ errorMessage: 'Please enter username! '});
+    } else if (this.state.password.length === 0) {
+      this.setState({ errorMessage: 'Please enter password! '});
+    } else {
+      const params = new URLSearchParams();
+      params.append('username', this.state.username);
+      params.append('password', this.state.password);
+      axios
+        .post('http://localhost:3001/login', params)
+        .then(response => {
+          if (response.status === 200) {
+              this.props.updateUser({
+                  loggedIn: true,
+                  username: response.data.username
+              })
+              this.setState({
+                  redirectTo: '/'
+              })
+          }
+        }).catch(err => {
+          console.log(`error logging in: ${err}`);
+        });
+    }
   }
 
   render() {
@@ -54,6 +63,9 @@ class Login extends React.Component {
                 <h1 className="text-center">Login</h1>
               </Col>
             </Row>
+            {this.state.errorMessage && 
+              <InfoMessage type={'error'} text={this.state.errorMessage} />
+            }
             <Row className="justify-content-center">
               <Col xs={10} lg={6}>
                 <Form>
@@ -64,7 +76,6 @@ class Login extends React.Component {
                       placeholder="Username" 
                       value={this.state.username}
                       onChange={this.handleChange}
-                      required
                     />
                   </Form.Group>
                   <Form.Group controlId="formBasicPassword">
@@ -74,7 +85,6 @@ class Login extends React.Component {
                       placeholder="Password"
                       value={this.state.password}
                       onChange={this.handleChange}
-                      required
                     />
                   </Form.Group>
                   <Button onClick={this.handleSubmit} variant="primary" type="submit">

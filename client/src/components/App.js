@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { AnimatedRoute } from 'react-router-transition';
 import Navigation from './Navigation';
 import Home from './Home';
 import About from './About';
@@ -7,7 +8,6 @@ import Login from './Login';
 import Signup from './Signup';
 import AddPostForm from './AddPostForm';
 import './App.css';
-import { AnimatedRoute } from 'react-router-transition';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -43,13 +43,13 @@ class App extends React.Component {
             username={this.state.username} 
           />
           <Route 
-            path='/posts/new'
-            render={() => <AddPostForm loggedIn={this.state.loggedIn} />}
-          />
-          <Route 
             exact
             path='/'
             render={() => <Home loggedIn={this.state.loggedIn} />}
+          />
+          <Route 
+            path='/posts/new'
+            render={() => <AddPostForm loggedIn={this.state.loggedIn} />}
           />
           <Route 
             path='/posts'
@@ -61,7 +61,6 @@ class App extends React.Component {
             render={() => <Login updateUser={this.updateUser} />}
           />
           <Route path='/signup' component={Signup} />
-          {/* <Route path='/posts/new' component={AddPostForm} /> */}
       </Router>
     );
   }
