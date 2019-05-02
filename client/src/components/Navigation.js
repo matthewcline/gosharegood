@@ -17,11 +17,9 @@ class Navigation extends React.Component {
   state = { redirectTo: null }
 
   logout = (event) => {
-    // event.preventDefault();
     axios
       .get('http://localhost:3001/logout')
       .then(response => {
-        console.log(response.data)
         if (response.status === 200) {
           this.props.updateUser({
             loggedIn: false,
@@ -40,7 +38,7 @@ class Navigation extends React.Component {
           <LinkContainer to="/about" className="link-container" style={{marginRight: '25px'}}>
             <NavItem>{ this.props.username }</NavItem>
           </LinkContainer>
-          <LinkContainer to="/" className="link-container" onClick={this.logout}>
+          <LinkContainer to="/posts" className="link-container" onClick={this.logout}>
             <NavItem>Logout</NavItem>
           </LinkContainer>
         </Nav>
