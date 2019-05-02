@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import About from './About';
-import { LinkContainer } from "react-router-bootstrap";
+import { LinkContainer, IndexLinkContainer } from "react-router-bootstrap";
 import './Navigation.css';
 import { AnimatedRoute } from 'react-router-transition';
 import axios from 'axios';
@@ -38,9 +38,9 @@ class Navigation extends React.Component {
           <LinkContainer to="/about" className="link-container" style={{marginRight: '25px'}}>
             <NavItem>{ this.props.username }</NavItem>
           </LinkContainer>
-          <LinkContainer to="/posts" className="link-container" onClick={this.logout}>
+          <IndexLinkContainer to="/" className="link-container" onClick={this.logout}>
             <NavItem>Logout</NavItem>
-          </LinkContainer>
+          </IndexLinkContainer>
         </Nav>
       );
     }

@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import InfoMessage from './InfoMessage';
 import './Login.css';
 import axios from 'axios';
 // axios.defaults.withCredentials = true;
@@ -46,7 +47,7 @@ class AddPostForm extends React.Component {
 
   render() {
     if (!this.props.loggedIn) {
-      return <h1>You must be logged in to do that</h1>
+      return <InfoMessage type={'error'} text={'You must be logged in to do that.'} />
     }
     if (this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }} />

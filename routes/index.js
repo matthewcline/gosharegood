@@ -15,13 +15,12 @@ router.post("/signup", (req, res) => {
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user) {
         if(err){
-            req.flash("error", err.message);
-            return res.redirect("signup");
+            res.status(500).json({ message: err.message });
+        } else {
+            passport.authenticate("local")(req, res, function() {
+                res.status(200).json({ username: req.user.username });
+            });
         }
-        passport.authenticate("local")(req, res, function() {
-            req.flash("success", `Welcome ${user.username}`)
-            res.redirect("/posts");
-        });
     });
 });
 
@@ -30,7 +29,6 @@ router.post("/signup", (req, res) => {
 // });
 
 router.get('/user', (req, res, next) => {
-    console.log("req.user: ", req.user);
     if (req.user) {
         res.json({ user: req.user })
     } else {

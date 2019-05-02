@@ -19,7 +19,6 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
         url: req.body.url,
         description: req.body.description,
     }
-    console.log("post: ", post);
     post.author = {
         id: req.user._id,
         username: req.user.username

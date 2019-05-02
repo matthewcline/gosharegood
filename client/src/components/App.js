@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { AnimatedRoute } from 'react-router-transition';
 import Navigation from './Navigation';
 import Home from './Home';
@@ -12,7 +12,10 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 class App extends React.Component {
-  state = { loggedIn: false, username: null };
+  state = { 
+    loggedIn: false, 
+    username: null
+  };
 
   componentDidMount() {
     this.getUser();
@@ -42,14 +45,13 @@ class App extends React.Component {
             loggedIn={this.state.loggedIn} 
             username={this.state.username} 
           />
-          <Route 
-            exact
-            path='/'
-            render={() => <Home loggedIn={this.state.loggedIn} />}
-          />
+          <Route exact path="/" render={() => (
+              <Redirect to="/posts"/>
+          )}/>
           <Route 
             path='/posts/new'
-            render={() => <AddPostForm loggedIn={this.state.loggedIn} />}
+            render={() => 
+              <AddPostForm loggedIn={this.state.loggedIn} />}
           />
           <Route 
             path='/posts'
@@ -60,7 +62,10 @@ class App extends React.Component {
             path='/login'
             render={() => <Login updateUser={this.updateUser} />}
           />
-          <Route path='/signup' component={Signup} />
+          <Route 
+            path='/signup' 
+            render={() => <Signup updateUser={this.updateUser} />}
+          />
       </Router>
     );
   }
