@@ -26,9 +26,9 @@ class Login extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.username.length === 0) {
-      this.setState({ errorMessage: 'Please enter username! '});
+      this.setState({ errorMessage: 'Please enter username'});
     } else if (this.state.password.length === 0) {
-      this.setState({ errorMessage: 'Please enter password! '});
+      this.setState({ errorMessage: 'Please enter password'});
     } else {
       const params = new URLSearchParams();
       params.append('username', this.state.username);
@@ -46,7 +46,11 @@ class Login extends React.Component {
               })
           }
         }).catch(err => {
-          console.log(`error logging in: ${err}`);
+          if (err.response.status) {
+            this.setState({ errorMessage: 'Incorrect username or password'});
+          } else {
+            console.log(`error logging in: ${err}`);
+          }
         });
     }
   }
