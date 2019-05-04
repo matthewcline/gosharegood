@@ -45,27 +45,36 @@ class Post extends React.Component {
     return (
       <Container className="post rounded">
         <Row className="justify-content-between align-items-center">
-          <Col xs={3} md={2}>
+          <Col xs={3} md={2} style={{paddingLeft: '0'}}>
             <div>
               {this.state.voted ? 
                 (
-                  <Image 
-                    onClick={this.submitVote}
-                    src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
-                    fluid 
-                  />
+                  <div>
+                    <div className="hands-div clicked-hands-div">
+                      <Image
+                        onClick={this.submitVote}
+                        src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
+                        fluid 
+                      />
+                    </div> 
+                    <div className="text-center mt-1" style={{opacity: '1.0'}}>{this.state.numVotes}</div>
+                  </div>
                 )
                 :
                 (
-                  <Image 
-                    style={{opacity: '0.5'}}
-                    onClick={this.submitVote}
-                    src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
-                    fluid 
-                  />
+                  <div>
+                    <div className="hands-div">
+                      <Image 
+                        style={{opacity: '0.7'}}
+                        onClick={this.submitVote}
+                        src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
+                        fluid 
+                      />
+                    </div> 
+                    <div className="text-center mt-1" style={{opacity: '0.6'}}>{this.state.numVotes}</div>
+                  </div>
                 )
               }
-              <div className="text-center">{this.state.numVotes}</div>
             </div>
           </Col> 
           <Col xs={9} md={10}>
