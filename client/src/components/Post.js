@@ -19,18 +19,11 @@ class Post extends React.Component {
         .put(`http://localhost:3001/posts/${this.props.post._id}/votes`)
         .then(response => {
           if (response.status === 200) {
-              // this.props.updateUser({
-              //     loggedIn: true,
-              //     username: response.data.username
-              // })
-              this.setState({ votes: post. });
+              console.log("response.data.message.votes: ", response.data.votes);
+              this.setState({ votes: response.data.votes });
           }
         }).catch(err => {
-          if (err.response.status) {
-            // this.setState({ errorMessage: 'Incorrect username or password.  Please try again.'});
-          } else {
-            console.log(`error logging in: ${err}`);
-          }
+            console.log(`error voting: ${err}`);
         });
     }
   }
@@ -41,9 +34,10 @@ class Post extends React.Component {
         <Row className="justify-content-between align-items-center">
           <Col xs={3} md={2}>
             <div>
-              {/* {(props.loggedIn && props.post.author.username === props.username) ? 
+              {this.props.voted ? 
                 (
                   <Image 
+                    onClick={this.submitVote}
                     src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
                     fluid 
                   />
@@ -52,17 +46,13 @@ class Post extends React.Component {
                 (
                   <Image 
                     style={{opacity: '0.5'}}
+                    onClick={this.submitVote}
                     src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
                     fluid 
                   />
                 )
-              } */}
-              <Image 
-                onClick={this.submitVote}
-                src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
-                fluid 
-              />
-              <div className="text-center">{this.props.post.votes}</div>
+              }
+              <div className="text-center">{this.state.votes}</div>
             </div>
           </Col>
           <Col xs={9} md={10}>

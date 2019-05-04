@@ -18,7 +18,7 @@ router.post("/signup", (req, res) => {
             res.status(500).json({ message: err.message });
         } else {
             passport.authenticate("local")(req, res, function() {
-                res.status(200).json({ username: req.user.username });
+                res.status(200).json({ user: req.user });
             });
         }
     });
@@ -38,7 +38,7 @@ router.get('/user', (req, res, next) => {
 
 router.post("/login", passport.authenticate("local"), 
     (req, res) => {
-        res.status(200).json({ username: req.user.username });
+        res.status(200).json({ user: req.user });
     }
 );
 

@@ -48,7 +48,8 @@ class Signup extends React.Component {
           if (response.status === 200) {
               this.props.updateUser({
                   loggedIn: true,
-                  username: response.data.username
+                  username: response.data.user.username,
+                  votes: response.data.user.votes
               })
               this.setState({
                   redirectTo: '/'

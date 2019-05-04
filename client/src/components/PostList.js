@@ -4,21 +4,22 @@ import Post from './Post';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import axios from 'axios';
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class PostList extends React.Component {
 
   getPosts() {
-    const posts = this.props.posts.map((post) => { // it's possible to use destructuring right here
-      return (
+    const posts = this.props.posts.map((post) => { // it's possible to use destructuring right here  
+    return (
         <Post  
           key={post._id} 
           post={post} 
           loggedIn={this.props.loggedIn}
           username={this.props.username}
+          voted={ 
+            (this.props.loggedIn && (this.props.votes.indexOf(post._id) !== -1)) 
+            ? true : false 
+          }
         />
       );
       // Note: assign a key to the root element

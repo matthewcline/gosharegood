@@ -1,16 +1,13 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavItem from 'react-bootstrap/NavItem';
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import About from './About';
 import { LinkContainer, IndexLinkContainer } from "react-router-bootstrap";
 import './Navigation.css';
-import { AnimatedRoute } from 'react-router-transition';
+// import { AnimatedRoute } from 'react-router-transition';
 import axios from 'axios';
 
 class Navigation extends React.Component {
@@ -23,7 +20,8 @@ class Navigation extends React.Component {
         if (response.status === 200) {
           this.props.updateUser({
             loggedIn: false,
-            username: null
+            username: null,
+            votes: null
           });
         }
       }).catch(error => {

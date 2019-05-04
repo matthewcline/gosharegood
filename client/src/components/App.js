@@ -14,7 +14,8 @@ axios.defaults.withCredentials = true;
 class App extends React.Component {
   state = { 
     loggedIn: false, 
-    username: null
+    username: null,
+    votes: null
   };
 
   componentDidMount() {
@@ -26,7 +27,11 @@ class App extends React.Component {
       .get('http://localhost:3001/user')
       .then(response => {
         if (response.data.user) {
-          this.setState({ loggedIn: true, username: response.data.user.username })
+          this.setState({ 
+            loggedIn: true, 
+            username: response.data.user.username,
+            votes: response.data.user.votes
+          })
         }
       }).catch(err => {
         console.log(`error getting user: ${err}`);
@@ -58,7 +63,8 @@ class App extends React.Component {
             render={() => 
               <Home 
                 loggedIn={this.state.loggedIn}
-                username={this.state.username}  
+                username={this.state.username}
+                votes={this.state.votes}  
               />}
           />
           <Route path='/about' component={About} />

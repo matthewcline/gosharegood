@@ -35,6 +35,7 @@ class Home extends React.Component {
           posts={this.state.posts} 
           loggedIn={this.props.loggedIn}
           username={this.props.username}
+          votes={this.props.votes}
         />
       </div>
     );
