@@ -31,7 +31,11 @@ class Home extends React.Component {
             </Fab>
           </Link>
         </div>
-        <PostList posts={this.state.posts} />
+        <PostList 
+          posts={this.state.posts} 
+          loggedIn={this.props.loggedIn}
+          username={this.props.username}
+        />
       </div>
     );
   }

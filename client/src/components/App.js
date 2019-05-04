@@ -55,7 +55,11 @@ class App extends React.Component {
           />
           <Route 
             path='/posts'
-            render={() => <Home loggedIn={this.state.loggedIn} />}
+            render={() => 
+              <Home 
+                loggedIn={this.state.loggedIn}
+                username={this.state.username}  
+              />}
           />
           <Route path='/about' component={About} />
           <Route 

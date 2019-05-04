@@ -3,9 +3,9 @@ var express    = require("express"),
     passport   = require("passport");
     User       = require("../models/user");
 
-router.get("/", (req, res) => {
-    res.redirect("/posts");
-});
+// router.get("/", (req, res) => {
+//     res.redirect("/posts");
+// });
 
 // router.get("/signup", (req, res) => {
 //     res.render("signup");

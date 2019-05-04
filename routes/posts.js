@@ -34,9 +34,9 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
     });
 });
 
-router.get("/new", middleware.isLoggedIn, (req, res) => {
-    res.render("posts/new");
-});
+// router.get("/new", middleware.isLoggedIn, (req, res) => {
+//     res.render("posts/new");
+// });
 
 router.get("/:id", (req, res) => {
     Post.findById(req.params.id, (err, foundPost) => {
@@ -64,19 +64,19 @@ router.put("/:id/votes", middleware.isLoggedIn, (req, res) => {
                     if(index === -1) {
                         votesDifference = 1;
                         votes.push(foundPost._id);
-                        foundUser.votes
                     } else {
                         votesDifference = -1;
                         votes.splice(index, 1);
                     }
-                    foundPost.votes = foundPost.votes + votesDifference;
+                    const postVotes = foundPost.votes + votesDifference;
+                    foundPost.votes = postVotes;
                     foundPost.save();
                     foundUser.votes = votes;
                     foundUser.save((err) => {
                         if(err) {
                             console.log(err);
                         } else {
-                            res.redirect("back");
+                            res.status(200).json({ votes: postVotes });
                         }
                     });
                 }
