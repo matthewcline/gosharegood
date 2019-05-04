@@ -7,7 +7,17 @@ import Image from 'react-bootstrap/Image';
 import axios from 'axios';
 
 class Post extends React.Component {
-  state = { votes: this.props.post.votes };
+  state = { 
+    numVotes: this.props.post.votes,
+    voted: this.props.voted
+  };
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      numVotes: props.post.votes,
+      voted: props.voted
+    });
+  }
 
   submitVote = (event) => {
     event.preventDefault();
@@ -19,8 +29,10 @@ class Post extends React.Component {
         .put(`http://localhost:3001/posts/${this.props.post._id}/votes`)
         .then(response => {
           if (response.status === 200) {
-              console.log("response.data.message.votes: ", response.data.votes);
-              this.setState({ votes: response.data.votes });
+              this.setState({ 
+                numVotes: response.data.votes,
+                voted: !this.state.voted
+              });
           }
         }).catch(err => {
             console.log(`error voting: ${err}`);
@@ -29,12 +41,13 @@ class Post extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <Container className="post rounded">
         <Row className="justify-content-between align-items-center">
           <Col xs={3} md={2}>
             <div>
-              {this.props.voted ? 
+              {this.state.voted ? 
                 (
                   <Image 
                     onClick={this.submitVote}
@@ -52,9 +65,9 @@ class Post extends React.Component {
                   />
                 )
               }
-              <div className="text-center">{this.state.votes}</div>
+              <div className="text-center">{this.state.numVotes}</div>
             </div>
-          </Col>
+          </Col> 
           <Col xs={9} md={10}>
             <h5>{this.props.post.title}</h5>
             <p>Posted by {this.props.post.author.username}</p>
