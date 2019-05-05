@@ -26,13 +26,10 @@ class PostList extends React.Component {
       // So if the img tag was wrapped in a div, then the key would be an 
       // attribute on the div element instead of the img tag
     });
-    console.log(posts);
     return posts;
   }
 
   render() {
-    console.log("re-rendered upon logout");
-    console.log(this.props.loggedIn);
     return (
       <Container className="post-list rounded">
         <Row>

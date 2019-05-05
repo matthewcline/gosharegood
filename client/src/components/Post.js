@@ -1,15 +1,24 @@
 import './Post.css';
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import axios from 'axios';
+import posed from 'react-pose';
+import AddPostForm from './AddPostForm';
+
+const Content = posed.div({
+  closed: { height: 0 },
+  open: { height: 'auto' }
+});
 
 class Post extends React.Component {
   state = { 
     numVotes: this.props.post.votes,
-    voted: this.props.voted
+    voted: this.props.voted,
+    open: false
   };
 
   componentWillReceiveProps(props) {
@@ -40,8 +49,20 @@ class Post extends React.Component {
     }
   }
 
+  deletePost = (event) => {
+    axios
+      .delete(`http://localhost:3001/posts/${this.props.post._id}`)
+      .then(response => {
+        if (response.status === 200) {
+          console.log("deleted post");
+        }
+      }).catch(err => {
+          console.log(`error deleting post: ${err}`);
+      });
+  }
+
   render() {
-    console.log(this.state);
+    const { open } = this.state;
     return (
       <Container className="post rounded">
         <Row className="justify-content-between align-items-center">
@@ -78,10 +99,34 @@ class Post extends React.Component {
             </div>
           </Col> 
           <Col xs={9} md={10}>
-            <h5>{this.props.post.title}</h5>
+            <h5 
+              onClick={() => this.setState({ open: open ? false : true })}
+            >
+              {this.props.post.title}
+            </h5>
             <p>Posted by {this.props.post.author.username}</p>
-            <p>{this.props.post.description}</p>
-            {/* <a href={props.post.url} target="_blank">View Story</a> */}
+            
+            {(this.props.post.description || this.props.post.url) && 
+              (
+                <Content className="post-content" pose={open ? 'open' : 'closed'}>
+                  {this.props.post.url &&
+                    <a href={this.props.post.url} target="_blank">View Story</a>
+                  }
+                  {this.props.post.description && 
+                    <p>{this.props.post.description}</p>
+                  }
+                  {this.props.post.author.username === this.props.username && 
+                    <Link to={`/posts/${this.props.post._id}/edit`} >
+                      Edit
+                    </Link>
+                  }
+                  {this.props.post.author.username === this.props.username && 
+                    <button onClick={this.deletePost}>Delete</button>
+                  }
+                </Content>
+              )
+            }
+            <hr></hr>
           </Col>
         </Row>
       </Container>

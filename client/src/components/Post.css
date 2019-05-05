@@ -7,6 +7,10 @@
 
 }
 
+.post-content {
+  overflow: hidden;
+}
+
 .hands-div {
   border-radius: 50%;
   border: 1px rgba(0, 176, 255, 0.2) solid; 

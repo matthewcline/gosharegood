@@ -3,15 +3,15 @@ var express = require("express"),
     Post = require("../models/post"),
     middleware = require("../middleware");
 
-router.get("/", (req, res) => {
-    Post.find({}).sort('-votes').exec(function(err, allPosts) {
-        if(err) {
-            console.log("Error: " + err);
-        } else {
-            res.render("posts/index", {posts: allPosts});
-        }
-    });
-});
+// router.get("/", (req, res) => {
+//     Post.find({}).sort('-votes').exec(function(err, allPosts) {
+//         if(err) {
+//             console.log("Error: " + err);
+//         } else {
+//             res.render("posts/index", {posts: allPosts});
+//         }
+//     });
+// });
 
 router.post("/", middleware.isLoggedIn, (req, res) => {
     var post = {
@@ -34,17 +34,12 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
     });
 });
 
-// router.get("/new", middleware.isLoggedIn, (req, res) => {
-//     res.render("posts/new");
-// });
-
 router.get("/:id", (req, res) => {
     Post.findById(req.params.id, (err, foundPost) => {
         if(err || !foundPost) {
             req.flash("error", "Post not found");
-            res.redirect("back");
         } else {
-            res.render("posts/show", {post: foundPost});
+            res.status(200).json({post: foundPost});
         }
     });
 });
@@ -85,19 +80,17 @@ router.put("/:id/votes", middleware.isLoggedIn, (req, res) => {
     });
 });
 
-router.get("/:id/edit", middleware.checkPostOwnership, (req, res) => {
-    Post.findById(req.params.id, (err, foundPost) => {
-        res.render("posts/edit", {post: foundPost});
-    });
-});
-
 router.put("/:id", middleware.checkPostOwnership, (req, res) => {
-    Post.findByIdAndUpdate(req.params.id, req.body.post, (err, updatedPost) => {
+    var post = {
+        title: req.body.title,
+        url: req.body.url,
+        description: req.body.description,
+    }
+    Post.findByIdAndUpdate(req.params.id, post, (err, updatedPost) => {
         if(err) {
             console.log(err);
-            res.redirect("/posts")
         } else {
-            res.redirect(`/posts/${req.params.id}`);
+            res.status(200).json({post: updatedPost});
         }
     });
 });

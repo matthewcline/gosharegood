@@ -9,13 +9,31 @@ import InfoMessage from './InfoMessage';
 import './Login.css';
 import axios from 'axios';
 
-class AddPostForm extends React.Component {
+class EditPostForm extends React.Component {
   state = { 
     title: '', 
     url: '', 
     description: '',
     redirectTo: null 
   };
+
+  componentDidMount() {
+    axios
+      .get(`http://localhost:3001/posts/${this.props.match.params.id}`)
+      .then(response => {
+        console.log('response: ')
+        console.log(response)
+        if (response.status === 200) {
+            this.setState({
+                title: response.data.post.title,
+                url: response.data.post.url,
+                description: response.data.post.description
+            });
+        }
+      }).catch(err => {
+        console.log(`error getting post: ${err}`);
+      });
+  }
 
   handleChange = (event) => {
     this.setState({
@@ -30,7 +48,7 @@ class AddPostForm extends React.Component {
     params.append('url', this.state.url);
     params.append('description', this.state.description);
     axios
-      .post('http://localhost:3001/posts', params)
+      .put(`http://localhost:3001/posts/${this.props.match.params.id}`, params)
       .then(response => {
         console.log('response: ')
         console.log(response)
@@ -56,7 +74,7 @@ class AddPostForm extends React.Component {
           <Container>
             <Row className="justify-content-center mb-4">
               <Col xs={10} lg={6}>
-                <h1 className="text-center">New Post</h1>
+                <h1 className="text-center">Edit Post</h1>
               </Col>
             </Row>
             <Row className="justify-content-center">
@@ -106,4 +124,4 @@ class AddPostForm extends React.Component {
   }
 }
 
-export default AddPostForm;
+export default EditPostForm;
