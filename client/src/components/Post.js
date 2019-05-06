@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import axios from 'axios';
 import posed from 'react-pose';
-import AddPostForm from './AddPostForm';
+import getTimeSinceCreated from '../utils';
 import InfoMessage from './InfoMessage';
 
 const Content = posed.div({
@@ -141,39 +141,37 @@ class Post extends React.Component {
                     </i>
                   </Col>
                 </Row>
-
-              {true && 
-                (
-                  <Content className="post-content" pose={open ? 'open' : 'closed'}>
-                    <p style={{color: 'gray', fontSize: '.85rem'}}>
-                      Posted by {this.props.post.author.username}
-                    </p>
-                    {this.props.post.url &&
-                      <div><a href={this.props.post.url} target="_blank">{this.props.post.url}</a></div>
+                <Content className="post-content" pose={open ? 'open' : 'closed'}>
+                  <p style={{color: 'gray', fontSize: '.85rem'}}>
+                    Posted by {this.props.post.author.username}
+                    {this.props.post.timeCreated && 
+                      <span class="ml-lg-1">{getTimeSinceCreated(this.props.post.timeCreated)}</span>
                     }
-                    {this.props.post.description && 
-                      <p>{this.props.post.description}</p>
-                    }
-                    {this.props.post.author.username === this.props.username && 
-                      <Link to={`/posts/${this.props.post._id}/edit`} >
-                        <i className="edit-and-delete-icon material-icons">
-                        edit
-                        </i>
-                      </Link>
-                    }
-                    {this.props.post.author.username === this.props.username && 
-                      <Link
-                        to="#"
-                        onClick={this.deletePost}
-                      >
-                        <i alt="delete" className="edit-and-delete-icon material-icons">
-                        delete
-                        </i>
-                      </Link>
-                    }
-                  </Content>
-                )
-              }
+                  </p>
+                  {this.props.post.url &&
+                    <div><a href={this.props.post.url} target="_blank">{this.props.post.url}</a></div>
+                  }
+                  {this.props.post.description && 
+                    <p>{this.props.post.description}</p>
+                  }
+                  {this.props.post.author.username === this.props.username && 
+                    <Link to={`/posts/${this.props.post._id}/edit`} >
+                      <i className="edit-and-delete-icon material-icons">
+                      edit
+                      </i>
+                    </Link>
+                  }
+                  {this.props.post.author.username === this.props.username && 
+                    <Link
+                      to="#"
+                      onClick={this.deletePost}
+                    >
+                      <i alt="delete" className="edit-and-delete-icon material-icons">
+                      delete
+                      </i>
+                    </Link>
+                  }
+                </Content>
             </Col>
           </Row>
           <hr className="mb-0 mt-2" style={{opacity: 0.4}}></hr>
