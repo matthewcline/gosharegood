@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import InfoMessage from './InfoMessage';
-import './Login.css';
+import './Signup.css';
 
 class Signup extends React.Component {
   state = { 
@@ -87,65 +87,67 @@ class Signup extends React.Component {
       );
     } else {
       return (
-        <Container className="signup-container">
-          <Row className="justify-content-center mb-4">
-            <Col xs={10} lg={6}>
-              <h1 className="text-center">Sign Up</h1>
-            </Col>
-          </Row>
-          {this.state.errorMessage && 
-            <InfoMessage type={'error'} text={this.state.errorMessage} />
-          }
-          <Row className="justify-content-center">
-            <Col xs={10} lg={6}>
-              <Form>
-                <Form.Group controlId="formBasicUsername" className="mb-4">
-                  <Form.Label>Please enter a username</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    name="username" 
-                    placeholder="Username" 
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formBasicLocation" className="mb-4">
-                  <Form.Label>City/Region (optional)</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    name="location" 
-                    placeholder="example: Los Angeles, CA" 
-                    value={this.state.location}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Please enter a password</Form.Label>
-                  <Form.Control 
-                    type="password" 
-                    name="password" 
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formBasicConfirmPassword">
-                  <Form.Label>Please confirm password</Form.Label>
-                  <Form.Control 
-                    type="password" 
-                    name="confirmPassword" 
-                    placeholder="Password"
-                    value={this.state.confirmPassword}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-                <Button onClick={this.handleSubmit} variant="primary" type="submit">
-                  Sign Up
-                </Button>
-              </Form>
-            </Col>
-          </Row>
-        </Container>
+        <div className="signup-container">
+          <Container className="signup-container-form">
+            <Row className="justify-content-center mb-4">
+              <Col xs={10} lg={6}>
+                <h1 className="text-center">Sign Up</h1>
+              </Col>
+            </Row>
+            {this.state.errorMessage && 
+              <InfoMessage type={'error'} text={this.state.errorMessage} />
+            }
+            <Row className="justify-content-center">
+              <Col xs={10} lg={6}>
+                <Form>
+                  <Form.Group controlId="formBasicUsername" className="mb-4">
+                    <Form.Label>Please enter a username</Form.Label>
+                    <Form.Control 
+                      type="text" 
+                      name="username" 
+                      placeholder="Username" 
+                      value={this.state.username}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicLocation" className="mb-4">
+                    <Form.Label>City/Region (optional)</Form.Label>
+                    <Form.Control 
+                      type="text" 
+                      name="location" 
+                      placeholder="example: Los Angeles, CA" 
+                      value={this.state.location}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Please enter a password</Form.Label>
+                    <Form.Control 
+                      type="password" 
+                      name="password" 
+                      placeholder="Password"
+                      value={this.state.password}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicConfirmPassword">
+                    <Form.Label>Please confirm password</Form.Label>
+                    <Form.Control 
+                      type="password" 
+                      name="confirmPassword" 
+                      placeholder="Password"
+                      value={this.state.confirmPassword}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Group>
+                  <Button onClick={this.handleSubmit} variant="primary" type="submit">
+                    Sign Up
+                  </Button>
+                </Form>
+              </Col>
+            </Row>
+          </Container>
+        </div>
       )
     }
   }

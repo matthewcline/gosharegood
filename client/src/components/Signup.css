@@ -7,4 +7,9 @@
   background-position-y: 0%;
   background-color: rgba(96, 197, 188, 0.5);
   height: 100vh;
+  color: white;
+}
+
+.signup-container-form {
+  padding-top: 80px;
 }
