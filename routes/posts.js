@@ -99,10 +99,8 @@ router.delete("/:id", middleware.checkPostOwnership, (req, res) => {
     Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
         if(err) {
             console.log(err);
-            res.redirect("/posts");
         } else {
-            req.flash("success", "Post deleted");
-            res.redirect("/posts");
+            res.status(200).json({ post: deletedPost });
         }
     })
 });
