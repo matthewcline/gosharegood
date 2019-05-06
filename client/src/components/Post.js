@@ -27,7 +27,7 @@ const Circle = posed.div({
     boxShadow: '0px 5px 10px rgba(0,0,0,0.2)'
   },
   press: {
-    scale: 1.1,
+    scale: 1.5,
     boxShadow: '0px 2px 5px rgba(0,0,0,0.1)'
   }
 });
