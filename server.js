@@ -2,6 +2,7 @@
 
 // const instead of var?
 var express              = require("express"),
+    path                 = require("path"),
     app                  = express(),
     cors                 = require("cors"),
     bodyParser           = require("body-parser"),
@@ -25,7 +26,7 @@ mongoose.connect(url, { useNewUrlParser: true });
 app.use(cors({credentials: true, origin: "http://localhost:3000"}));    // TODO: add whitelist for cors
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(methodOverride("_method"));
 app.use(flash());
 // seedDB();
@@ -54,7 +55,16 @@ if(process.env.ENV && process.env.ENV === 'production') {
             next();
         }
     });
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    });
 }
+
+//build mode
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/public/index.html'));
+})
 
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
