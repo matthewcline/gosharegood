@@ -9,6 +9,7 @@ import Login from './Login';
 import Signup from './Signup';
 import AddPostForm from './AddPostForm';
 import EditPostForm from './EditPostForm';
+import FeedbackForm from './FeedbackForm';
 import './App.css';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
@@ -107,7 +108,7 @@ class App extends React.Component {
             />
             <Route 
               path='/feedback' 
-              render={() => <FeedbackForm />} />}
+              render={() => <FeedbackForm />}
             />
           </div>
         )} 

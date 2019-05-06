@@ -1,6 +1,7 @@
 var express    = require("express"),
-    router     = express.Router();
-    passport   = require("passport");
+    router     = express.Router(),
+    passport   = require("passport"),
+    Feedback = require("../models/feedback"),
     User       = require("../models/user");
 
 // router.get("/", (req, res) => {
@@ -20,6 +21,19 @@ router.post("/signup", (req, res) => {
             passport.authenticate("local")(req, res, function() {
                 res.status(200).json({ user: req.user });
             });
+        }
+    });
+});
+
+router.post("/feedback", (req, res) => {
+    var feedback = {
+        description: req.body.description
+    }
+    Feedback.create(post, (err, newPost) => {
+        if(err) {
+            console.log("Error: " + err);
+        } else {
+            res.send("successfully created feedback post");
         }
     });
 });
