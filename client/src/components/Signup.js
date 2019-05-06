@@ -45,7 +45,7 @@ class Signup extends React.Component {
       params.append('location', this.state.location);
       params.append('password', this.state.password);
       axios
-        .post('http://localhost:3001/signup', params)
+        .post('/signup', params)
         .then(response => {
           if (response.status === 200) {
               this.props.updateUser({

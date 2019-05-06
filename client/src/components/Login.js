@@ -34,7 +34,7 @@ class Login extends React.Component {
       params.append('username', this.state.username);
       params.append('password', this.state.password);
       axios
-        .post('http://localhost:3001/login', params)
+        .post('login', params)
         .then(response => {
           if (response.status === 200) {
               this.props.updateUser({

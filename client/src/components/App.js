@@ -32,7 +32,7 @@ class App extends React.Component {
 
   getUser = () => {
     axios
-      .get('http://localhost:3001/user')
+      .get('/user')
       .then(response => {
         if (response.data.user) {
           this.setState({ 

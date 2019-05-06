@@ -15,7 +15,7 @@ class Navigation extends React.Component {
 
   logout = (event) => {
     axios
-      .get('http://localhost:3001/logout')
+      .get('/logout')
       .then(response => {
         if (response.status === 200) {
           this.props.updateUser({

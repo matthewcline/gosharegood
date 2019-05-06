@@ -20,7 +20,7 @@ class EditPostForm extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:3001/posts/${this.props.match.params.id}`)
+      .get(`/posts/${this.props.match.params.id}`)
       .then(response => {
         console.log('response: ')
         console.log(response)
@@ -49,7 +49,7 @@ class EditPostForm extends React.Component {
     params.append('url', this.state.url);
     params.append('description', this.state.description);
     axios
-      .put(`http://localhost:3001/posts/${this.props.match.params.id}`, params)
+      .put(`/posts/${this.props.match.params.id}`, params)
       .then(response => {
         console.log('response: ')
         console.log(response)

@@ -17,7 +17,7 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/posts')
+    fetch('/api/posts')
       .then(res => res.json())
       .then(posts => this.setState({ posts }));
   }

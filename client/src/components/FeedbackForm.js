@@ -26,7 +26,7 @@ class FeedbackForm extends React.Component {
     const params = new URLSearchParams();
     params.append('description', this.state.description);
     axios
-      .post('http://localhost:3001/feedback', params)
+      .post('/feedback', params)
       .then(response => {
         if (response.status === 200) {
             this.setState({

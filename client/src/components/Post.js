@@ -36,7 +36,7 @@ class Post extends React.Component {
       this.setState({ errorMessage: 'You must be logged in to do that'});
     } else {
       axios
-        .put(`http://localhost:3001/posts/${this.props.post._id}/votes`)
+        .put(`/posts/${this.props.post._id}/votes`)
         .then(response => {
           if (response.status === 200) {
               this.setState({ 
@@ -52,7 +52,7 @@ class Post extends React.Component {
 
   deletePost = (event) => {
     axios
-      .delete(`http://localhost:3001/posts/${this.props.post._id}`)
+      .delete(`posts/${this.props.post._id}`)
       .then(response => {
         if (response.status === 200) {
           this.setState({

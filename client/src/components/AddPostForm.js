@@ -31,7 +31,7 @@ class AddPostForm extends React.Component {
     params.append('url', this.state.url);
     params.append('description', this.state.description);
     axios
-      .post('http://localhost:3001/posts', params)
+      .post('/posts', params)
       .then(response => {
         console.log('response: ')
         console.log(response)
