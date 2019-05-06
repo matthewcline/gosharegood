@@ -33,7 +33,7 @@ class Post extends React.Component {
   submitVote = (event) => {
     event.preventDefault();
     if (!this.props.loggedIn) {
-      // this.setState({ errorMessage: 'You must be logged in to do that'});
+      this.setState({ errorMessage: 'You must be logged in to do that'});
     } else {
       axios
         .put(`http://localhost:3001/posts/${this.props.post._id}/votes`)
@@ -71,9 +71,9 @@ class Post extends React.Component {
     } else {
       return (
         <Container className="post rounded">
-          {/* {this.state.errorMessage && 
+          {this.state.errorMessage && 
             <InfoMessage type={'error'} text={this.state.errorMessage} />
-          } */}
+          }
           <Row className="justify-content-between align-items-center">
             <Col xs={3} md={2} style={{paddingLeft: '0'}}>
               <div>
