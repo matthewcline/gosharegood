@@ -37,7 +37,7 @@ class Home extends React.Component {
             </Fab>
           </Link>
         </div>
-        <hr style={{width: '72%'}}></hr>
+        <hr style={{width: '60%'}}></hr>
         <PostList 
           posts={this.state.posts} 
           loggedIn={this.props.loggedIn}

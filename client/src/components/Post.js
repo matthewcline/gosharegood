@@ -105,27 +105,45 @@ class Post extends React.Component {
               </div>
             </Col> 
             <Col xs={9} md={10}>
-              <div
-                onClick={() => this.setState({ open: open ? false : true })}
-              >
-                <h5>
-                  {this.props.post.title}
-                </h5>
-                <img src="" />
+                <Row>
+                  <h5>
+                    {this.props.post.title}
+                  </h5>
+                </Row>
+                <Row className="justify-content-center">
+                  <Col xs={2}>
+                    {/* <Image 
+                      style={{opacity: 0.1}}
+                      onClick={() => this.setState({ open: open ? false : true })}
+                      alt="expand arrow" 
+                      src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/expand_arrow.png" 
+                      fluid 
+                    /> */}
+                    <i 
+                      class="material-icons"
+                      onClick={() => this.setState({ open: open ? false : true })}
+                      style={{fontSize: '2rem', opacity: 0.8}}
+                    >
+                    expand_more
+                    </i>
+                  </Col>
+                </Row>
                 {/* <p>Posted by {this.props.post.author.username}</p> */}
-              </div>
+
               {(this.props.post.description || this.props.post.url) && 
                 (
                   <Content className="post-content" pose={open ? 'open' : 'closed'}>
                     {this.props.post.url &&
-                      <a href={this.props.post.url} target="_blank">View Story</a>
+                      <div><a href={this.props.post.url} target="_blank">View Story</a></div>
                     }
                     {this.props.post.description && 
                       <p>{this.props.post.description}</p>
                     }
                     {this.props.post.author.username === this.props.username && 
                       <Link to={`/posts/${this.props.post._id}/edit`} >
-                        Edit
+                        <i class="edit-and-delete-icon material-icons">
+                        edit
+                        </i>
                       </Link>
                     }
                     {this.props.post.author.username === this.props.username && 
@@ -133,15 +151,17 @@ class Post extends React.Component {
                         to="#"
                         onClick={this.deletePost}
                       >
-                        Delete
+                        <i alt="delete" class="edit-and-delete-icon material-icons">
+                        delete
+                        </i>
                       </Link>
                     }
                   </Content>
                 )
               }
-              <hr></hr>
             </Col>
           </Row>
+          <hr className="mb-0 mt-2" style={{opacity: 0.4}}></hr>
         </Container>
       );
     }

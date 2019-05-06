@@ -11,6 +11,14 @@
   overflow: hidden;
 }
 
+.edit-and-delete-icon {
+  color: rgb(139, 138, 138);
+}
+
+.edit-and-delete-icon:hover {
+  color: rgba(128, 128, 128, 0.699);
+}
+
 .hands-div {
   border-radius: 50%;
   border: 1px rgba(0, 176, 255, 0.2) solid; 
