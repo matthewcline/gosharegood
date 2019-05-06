@@ -9,7 +9,6 @@ import Col from 'react-bootstrap/Col';
 class PostList extends React.Component {
   
   getPosts() {
-    console.log("this.props.posts", this.props.posts);
     const posts = this.props.posts.map((post) => { // it's possible to use destructuring right here  
     return (
         <Post  
