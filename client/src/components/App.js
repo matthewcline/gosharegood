@@ -23,7 +23,7 @@ class App extends React.Component {
   state = { 
     loggedIn: false, 
     username: null,
-    votes: null
+    votes: null,
   };
 
   componentDidMount() {

@@ -65,7 +65,11 @@ class EditPostForm extends React.Component {
 
   render() {
     if (!this.props.loggedIn) {
-      return <InfoMessage type={'error'} text={'You must be logged in to do that.'} />
+      return (
+        <div style={{width: '80%', margin: 'auto'}}>
+          <InfoMessage type={'error'} text={'You must be logged in to do that.'} />
+        </div>
+      );
     }
     if (this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }} />

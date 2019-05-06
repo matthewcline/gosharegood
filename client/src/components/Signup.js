@@ -89,14 +89,16 @@ class Signup extends React.Component {
       return (
         <div className="signup-container">
           <Container className="signup-container-form">
+            {this.state.errorMessage && 
+              <div style={{width: '80%', margin: 'auto'}}>
+                <InfoMessage type={'error'} text={this.state.errorMessage} />
+              </div>
+            }
             <Row className="justify-content-center mb-4">
               <Col xs={10} lg={6}>
                 <h1 className="text-center">Sign Up</h1>
               </Col>
             </Row>
-            {this.state.errorMessage && 
-              <InfoMessage type={'error'} text={this.state.errorMessage} />
-            }
             <Row className="justify-content-center">
               <Col xs={10} lg={6}>
                 <Form>

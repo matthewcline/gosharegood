@@ -145,7 +145,7 @@ class Post extends React.Component {
                   <p style={{color: 'gray', fontSize: '.85rem'}}>
                     Posted by {this.props.post.author.username}
                     {this.props.post.timeCreated && 
-                      <span class="ml-lg-1">{getTimeSinceCreated(this.props.post.timeCreated)}</span>
+                      <span class="ml-1">{getTimeSinceCreated(this.props.post.timeCreated)}</span>
                     }
                   </p>
                   {this.props.post.url &&
