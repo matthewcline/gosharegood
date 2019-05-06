@@ -1,4 +1,4 @@
-#[gosharegood](https://www.gosharegood.com)
+# [gosharegood](https://www.gosharegood.com)
 
 Web app to share good news from around the world
 
