@@ -12,6 +12,7 @@ import './Login.css';
 class Signup extends React.Component {
   state = { 
     username: '', 
+    location: '',
     password: '', 
     confirmPassword: '',
     redirectTo: null,
@@ -41,6 +42,7 @@ class Signup extends React.Component {
     } else {
       const params = new URLSearchParams();
       params.append('username', this.state.username);
+      params.append('location', this.state.location);
       params.append('password', this.state.password);
       axios
         .post('http://localhost:3001/signup', params)
@@ -49,6 +51,7 @@ class Signup extends React.Component {
               this.props.updateUser({
                   loggedIn: true,
                   username: response.data.user.username,
+                  location: response.data.user.location,
                   votes: response.data.user.votes
               })
               this.setState({
@@ -58,6 +61,7 @@ class Signup extends React.Component {
         }).catch(err => {
             this.setState({ 
               username: '', 
+              location: '',
               password: '', 
               confirmPassword: '',
               errorMessage: err.response.data.message 
@@ -102,6 +106,16 @@ class Signup extends React.Component {
                     name="username" 
                     placeholder="Username" 
                     value={this.state.username}
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
+                <Form.Group controlId="formBasicLocation" className="mb-4">
+                  <Form.Label>City/Region (optional)</Form.Label>
+                  <Form.Control 
+                    type="text" 
+                    name="location" 
+                    placeholder="example: Los Angeles, CA" 
+                    value={this.state.location}
                     onChange={this.handleChange}
                   />
                 </Form.Group>

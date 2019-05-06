@@ -105,6 +105,10 @@ class App extends React.Component {
               path='/signup' 
               render={() => <Signup updateUser={this.updateUser} />}
             />
+            <Route 
+              path='/feedback' 
+              render={() => <FeedbackForm />} />}
+            />
           </div>
         )} 
       />

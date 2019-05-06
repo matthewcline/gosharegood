@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -74,6 +75,13 @@ class EditPostForm extends React.Component {
           <Container>
             <Row className="justify-content-center mb-4">
               <Col xs={10} lg={6}>
+                <Link to="/">
+                  Back
+                </Link>
+              </Col>
+            </Row>
+            <Row className="justify-content-center mb-4">
+              <Col xs={10} lg={6}>
                 <h1 className="text-center">Edit Post</h1>
               </Col>
             </Row>
@@ -114,6 +122,11 @@ class EditPostForm extends React.Component {
                   <Button onClick={this.handleSubmit} variant="primary" type="submit">
                     Submit
                   </Button>
+                  <Link to="/">
+                    <Button className="ml-2" variant="secondary">
+                      Cancel
+                    </Button>
+                  </Link>
                 </Form>
               </Col>
             </Row>

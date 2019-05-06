@@ -84,7 +84,7 @@ class AddPostForm extends React.Component {
                   <Form.Group controlId="formBasicURL" className="mb-4">
                     <Form.Label>URL</Form.Label>
                     <Form.Control 
-                      type="text" 
+                      type="url" 
                       name="url" 
                       placeholder="link to story"
                       value={this.state.url}

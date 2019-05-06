@@ -12,7 +12,7 @@ var express    = require("express"),
 // });
 
 router.post("/signup", (req, res) => {
-    var newUser = new User({username: req.body.username});
+    var newUser = new User({username: req.body.username, location: req.body.location});
     User.register(newUser, req.body.password, function(err, user) {
         if(err){
             res.status(500).json({ message: err.message });
