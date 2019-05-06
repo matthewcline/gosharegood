@@ -23,7 +23,7 @@ var indexRoutes          = require("./routes/index"),
 var PORT = process.env.PORT || 3001;
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/gosharegood";
 mongoose.connect(url, { useNewUrlParser: true });
-app.use(cors({credentials: true, origin: ["http://localhost:3000", "http://www.gosharegood.com"]}));
+app.use(cors({credentials: true, origin: ["http://localhost:3000", "http://www.gosharegood.com", "https://www.gosharegood.com"]}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'client/build')));
