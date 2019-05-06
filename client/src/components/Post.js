@@ -132,13 +132,6 @@ class Post extends React.Component {
                 </Row>
                 <Row className="justify-content-center">
                   <Col xs={2}>
-                    {/* <Image 
-                      style={{opacity: 0.1}}
-                      onClick={() => this.setState({ open: open ? false : true })}
-                      alt="expand arrow" 
-                      src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/expand_arrow.png" 
-                      fluid 
-                    /> */}
                     <i 
                       className="material-icons"
                       onClick={() => this.setState({ open: open ? false : true })}
@@ -148,11 +141,13 @@ class Post extends React.Component {
                     </i>
                   </Col>
                 </Row>
-                {/* <p>Posted by {this.props.post.author.username}</p> */}
 
               {true && 
                 (
                   <Content className="post-content" pose={open ? 'open' : 'closed'}>
+                    <p style={{color: 'gray', fontSize: '.85rem'}}>
+                      Posted by {this.props.post.author.username}
+                    </p>
                     {this.props.post.url &&
                       <div><a href={this.props.post.url} target="_blank">{this.props.post.url}</a></div>
                     }
