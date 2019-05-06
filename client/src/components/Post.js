@@ -152,7 +152,7 @@ class Post extends React.Component {
                     <div>
                       <a href={this.props.post.url} target="_blank">
                         {this.props.post.url.length > 50 ?
-                          `${this.props.post.url.substring(0, 50)}...`
+                          `${this.props.post.url.substring(0, 40)}...`
                           :
                           this.props.post.url
                         }
