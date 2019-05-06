@@ -23,9 +23,7 @@ var indexRoutes          = require("./routes/index"),
 var PORT = process.env.PORT || 3001;
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/gosharegood";
 mongoose.connect(url, { useNewUrlParser: true });
-if(!process.env.ENV || (process.env.ENV && process.env.ENV !== 'production')) {
-    app.use(cors({credentials: true, origin: "http://localhost:3000"}));    // TODO: add whitelist for cors
-}
+app.use(cors({credentials: true, origin: ["http://localhost:3000", "http://www.gosharegood.com"]}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'client/build')));
