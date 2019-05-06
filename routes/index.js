@@ -26,7 +26,7 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/feedback", (req, res) => {
-    var feedback = {
+    var post = {
         description: req.body.description
     }
     Feedback.create(post, (err, newPost) => {
