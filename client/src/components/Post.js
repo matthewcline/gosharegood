@@ -120,7 +120,7 @@ class Post extends React.Component {
                       fluid 
                     /> */}
                     <i 
-                      class="material-icons"
+                      className="material-icons"
                       onClick={() => this.setState({ open: open ? false : true })}
                       style={{fontSize: '2rem', opacity: 0.8}}
                     >
@@ -130,18 +130,18 @@ class Post extends React.Component {
                 </Row>
                 {/* <p>Posted by {this.props.post.author.username}</p> */}
 
-              {(this.props.post.description || this.props.post.url) && 
+              {true && 
                 (
                   <Content className="post-content" pose={open ? 'open' : 'closed'}>
                     {this.props.post.url &&
-                      <div><a href={this.props.post.url} target="_blank">View Story</a></div>
+                      <div><a href={this.props.post.url} target="_blank">{this.props.post.url}</a></div>
                     }
                     {this.props.post.description && 
                       <p>{this.props.post.description}</p>
                     }
                     {this.props.post.author.username === this.props.username && 
                       <Link to={`/posts/${this.props.post._id}/edit`} >
-                        <i class="edit-and-delete-icon material-icons">
+                        <i className="edit-and-delete-icon material-icons">
                         edit
                         </i>
                       </Link>
@@ -151,7 +151,7 @@ class Post extends React.Component {
                         to="#"
                         onClick={this.deletePost}
                       >
-                        <i alt="delete" class="edit-and-delete-icon material-icons">
+                        <i alt="delete" className="edit-and-delete-icon material-icons">
                         delete
                         </i>
                       </Link>

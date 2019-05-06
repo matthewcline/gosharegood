@@ -12,7 +12,9 @@
 }
 
 .edit-and-delete-icon {
-  color: rgb(139, 138, 138);
+  color: rgb(97, 96, 96);
+  margin-right: 18px;
+  margin-top: 10px
 }
 
 .edit-and-delete-icon:hover {

@@ -12,7 +12,9 @@ import 'react-awesome-button/dist/styles.css';
 import './Home.css'
 
 class Home extends React.Component {
-  state = { posts: [] };
+  state = { 
+    posts: []
+  };
 
   componentDidMount() {
     fetch('http://localhost:3001/api/posts')
@@ -28,12 +30,13 @@ class Home extends React.Component {
   }
 
   render() {
+    console.log(this.state.addPostFormOpen);
     return (
       <div>
         <div className="add-post-btn justify-content-center">
           <Link to="/posts/new" >
             <Fab color="secondary" aria-label="Add">
-              <AddIcon />
+              <AddIcon onClick={this.onAddPostFormOpen} />
             </Fab>
           </Link>
         </div>

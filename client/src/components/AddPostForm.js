@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -54,6 +55,13 @@ class AddPostForm extends React.Component {
       return (
         <div>
           <Container>
+            <Row className="justify-content-center mb-4">
+              <Col xs={10} lg={6}>
+                <Link to="/">
+                  Back
+                </Link>
+              </Col>
+            </Row>
             <Row className="justify-content-center mb-4">
               <Col xs={10} lg={6}>
                 <h1 className="text-center">New Post</h1>

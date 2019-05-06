@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
 import { AnimatedRoute } from 'react-router-transition';
 import posed, { PoseGroup } from 'react-pose';
 import Navigation from './Navigation';
@@ -59,6 +59,12 @@ class App extends React.Component {
               loggedIn={this.state.loggedIn} 
               username={this.state.username} 
             />
+            <p className="text-center mb-5">
+              Note: this is a beta release.  Please help by submitting your feedback 
+              <Link className="ml-1" to="feedback" alt="submit-feedback">
+                here
+              </Link>!
+            </p>
             <Route exact path="/" render={() => (
                 <Redirect to="/posts"/>
               )}
@@ -77,6 +83,7 @@ class App extends React.Component {
               <RouteContainer key={location.key}>
                 <Switch location={location}> */}
                   <Route 
+                    exact
                     key="home"
                     path='/posts'
                     render={() => 

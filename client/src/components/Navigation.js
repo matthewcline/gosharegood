@@ -33,8 +33,8 @@ class Navigation extends React.Component {
     if (this.props.loggedIn) {
       return (
         <Nav>
-          <LinkContainer to="/about" className="link-container" style={{marginRight: '25px'}}>
-            <NavItem>{ this.props.username }</NavItem>
+          <LinkContainer to="#" className="link-container" style={{marginRight: '25px'}}>
+            <NavItem>Signed in as { this.props.username }</NavItem>
           </LinkContainer>
           <IndexLinkContainer to="/" className="link-container" onClick={this.logout}>
             <NavItem>Logout</NavItem>
