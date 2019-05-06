@@ -28,8 +28,6 @@ class FeedbackForm extends React.Component {
     axios
       .post('http://localhost:3001/feedback', params)
       .then(response => {
-        console.log('response: ')
-        console.log(response)
         if (response.status === 200) {
             this.setState({
                 redirectTo: '/'

@@ -2,9 +2,9 @@ import React from 'react';
 
 const InfoMessage = ({ type, text }) => {
   return (
-    <h1>
+    <h5>
       { text }
-    </h1>
+    </h5>
   );
 }
 

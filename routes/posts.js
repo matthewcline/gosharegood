@@ -1,7 +1,9 @@
 var express = require("express"),
     router  = express.Router(),  // check to see if {mergeParams: true} is needed?
     Post = require("../models/post"),
+    User = require("../models/user"),
     middleware = require("../middleware");
+
 
 // router.get("/", (req, res) => {
 //     Post.find({}).sort('-votes').exec(function(err, allPosts) {

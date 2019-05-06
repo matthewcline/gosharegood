@@ -8,6 +8,7 @@ import Image from 'react-bootstrap/Image';
 import axios from 'axios';
 import posed from 'react-pose';
 import AddPostForm from './AddPostForm';
+import InfoMessage from './InfoMessage';
 
 const Content = posed.div({
   closed: { height: 0 },
@@ -32,7 +33,6 @@ class Post extends React.Component {
   submitVote = (event) => {
     event.preventDefault();
     if (!this.props.loggedIn) {
-      // TODO
       // this.setState({ errorMessage: 'You must be logged in to do that'});
     } else {
       axios
@@ -71,6 +71,9 @@ class Post extends React.Component {
     } else {
       return (
         <Container className="post rounded">
+          {/* {this.state.errorMessage && 
+            <InfoMessage type={'error'} text={this.state.errorMessage} />
+          } */}
           <Row className="justify-content-between align-items-center">
             <Col xs={3} md={2} style={{paddingLeft: '0'}}>
               <div>

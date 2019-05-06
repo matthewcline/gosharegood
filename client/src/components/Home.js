@@ -30,7 +30,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state.addPostFormOpen);
     return (
       <div>
         <div className="add-post-btn justify-content-center">
