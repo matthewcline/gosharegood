@@ -15,6 +15,23 @@ const Content = posed.div({
   open: { height: 'auto' }
 });
 
+const Circle = posed.div({
+  hoverable: true,
+  pressable: true,
+  init: {
+    scale: 1,
+    boxShadow: '0px 0px 0px rgba(0,0,0,0)'
+  },
+  hover: {
+    scale: 1.2,
+    boxShadow: '0px 5px 10px rgba(0,0,0,0.2)'
+  },
+  press: {
+    scale: 1.1,
+    boxShadow: '0px 2px 5px rgba(0,0,0,0.1)'
+  }
+});
+
 class Post extends React.Component {
   state = { 
     numVotes: this.props.post.votes,
@@ -80,27 +97,27 @@ class Post extends React.Component {
                 {this.state.voted ? 
                   (
                     <div>
-                      <div className="hands-div clicked-hands-div">
+                      <Circle className="hands-div clicked-hands-div">
                         <Image
                           onClick={this.submitVote}
                           src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
                           fluid 
                         />
-                      </div> 
+                      </Circle> 
                       <div className="text-center mt-1" style={{opacity: '1.0'}}>{this.state.numVotes}</div>
                     </div>
                   )
                   :
                   (
                     <div>
-                      <div className="hands-div">
+                      <Circle className="hands-div">
                         <Image 
                           style={{opacity: '0.7'}}
                           onClick={this.submitVote}
                           src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/raisinghands.png" 
                           fluid 
                         />
-                      </div> 
+                      </Circle> 
                       <div className="text-center mt-1" style={{opacity: '0.6'}}>{this.state.numVotes}</div>
                     </div>
                   )
