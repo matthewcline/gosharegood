@@ -1,4 +1,10 @@
 .signup-container {
-  width: 70%;
-  margin: 50px auto;
+  margin: 0 auto;
+  background-image: url("https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/login_circle.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 0%;
+  background-color: rgba(96, 197, 188, 0.5);
+  height: 100vh;
 }
