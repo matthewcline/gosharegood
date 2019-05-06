@@ -26,7 +26,6 @@ mongoose.connect(url, { useNewUrlParser: true });
 app.use(cors({credentials: true, origin: ["http://localhost:3000", "http://www.gosharegood.com", "https://www.gosharegood.com"]}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(methodOverride("_method"));
 app.use(flash());
 // seedDB();
@@ -56,6 +55,8 @@ if(process.env.ENV && process.env.ENV === 'production') {
         }
     });
 }
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
