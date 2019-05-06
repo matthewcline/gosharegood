@@ -23,7 +23,9 @@ var indexRoutes          = require("./routes/index"),
 var PORT = process.env.PORT || 3001;
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/gosharegood";
 mongoose.connect(url, { useNewUrlParser: true });
-app.use(cors({credentials: true, origin: "http://localhost:3000"}));    // TODO: add whitelist for cors
+if(!process.env.ENV || (process.env.ENV && process.env.ENV !== 'production')) {
+    app.use(cors({credentials: true, origin: "http://localhost:3000"}));    // TODO: add whitelist for cors
+}
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -69,7 +71,7 @@ app.use("/posts", postRoutes);
 app.use("/api", apiRoutes);
 app.use("/users/:id", userRoutes);
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 

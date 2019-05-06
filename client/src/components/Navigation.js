@@ -70,7 +70,7 @@ class Navigation extends React.Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
             <Nav>
-              <LinkContainer to="/about" className="link-container" style={{marginLeft: '15px'}}>
+              <LinkContainer to="/about" className="link-container ml-lg-3">
                 <NavItem>About</NavItem>
               </LinkContainer>
             </Nav>

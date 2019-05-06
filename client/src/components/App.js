@@ -61,10 +61,11 @@ class App extends React.Component {
               username={this.state.username} 
             />
             <p className="text-center mb-5">
-              Note: this is a beta release.  Please help by submitting your feedback 
+              Note: this is a beta release.  Please share your feedback  
               <Link className="ml-1" to="feedback" alt="submit-feedback">
                 here
               </Link>!
+              
             </p>
             <Route exact path="/" render={() => (
                 <Redirect to="/posts"/>
