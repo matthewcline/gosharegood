@@ -46,6 +46,17 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+if(process.env.ENV && process.env.ENV === 'production') {
+    app.use((req, res, next) => {
+        if (req.header('x-forwarded-proto') !== 'https') {
+            res.redirect(`https://${req.header('host')}${req.url}`);
+        }
+        else {
+            next();
+        }
+    });
+}
+
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
@@ -58,20 +69,9 @@ app.use("/posts", postRoutes);
 app.use("/api", apiRoutes);
 app.use("/users/:id", userRoutes);
 
-if(process.env.ENV && process.env.ENV === 'production') {
-    app.use((req, res, next) => {
-        if (req.header('x-forwarded-proto') !== 'https') {
-            res.redirect(`https://${req.header('host')}${req.url}`);
-        }
-        else {
-            next();
-        }
-    });
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname+'/client/build/index.html'));
-    });
-}
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 // possibly need to pass in process.env.IP for Heroku
 app.listen(PORT, () => {
