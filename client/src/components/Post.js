@@ -149,7 +149,20 @@ class Post extends React.Component {
                     }
                   </p>
                   {this.props.post.url &&
-                    <div><a href={this.props.post.url} target="_blank">{this.props.post.url}</a></div>
+                    <div>
+                      <a href={this.props.post.url} target="_blank">
+                        {this.props.post.url.length > 50 ?
+                          `${this.props.post.url.substring(0, 50)}...`
+                          :
+                          this.props.post.url
+                        }
+                        <span>
+                        <i style={{position: 'relative', bottom: '-4px'}} class="material-icons">
+                        exit_to_app
+                        </i>
+                        </span>
+                      </a>
+                    </div>
                   }
                   {this.props.post.description && 
                     <p>{this.props.post.description}</p>
