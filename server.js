@@ -47,11 +47,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 if(process.env.ENV && process.env.ENV === 'production') {
-    console.log("in prod");
     app.use((req, res, next) => {
-        console.log("in callback")
         if (req.header('x-forwarded-proto') !== 'https') {
-            console.log("redirected");
             res.redirect(`https://${req.header('host')}${req.url}`);
         }
         else {
