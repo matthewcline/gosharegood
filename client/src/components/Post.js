@@ -126,9 +126,9 @@ class Post extends React.Component {
             </Col> 
             <Col xs={9} md={10}>
                 <Row>
-                  <h5>
+                  <h4>
                     {this.props.post.title}
-                  </h5>
+                  </h4>
                 </Row>
                 <Row className="justify-content-center">
                   <Col xs={2}>

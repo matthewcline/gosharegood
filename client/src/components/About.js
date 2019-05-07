@@ -13,7 +13,7 @@ const About = () => {
       <Container className="about-container-text">
         <Row className="justify-content-center text-center">
           <Col xs={12} lg={5}>
-            <h1>Go Share</h1>
+            <h1>Go. Share.</h1>
             <h1>
               <Image 
                 src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/good.png" 
@@ -51,7 +51,7 @@ const About = () => {
         <Row className="pb-5 justify-content-center text-center">
           <Col xs={12} lg={8}>
             <div className="about-container-inner-text rounded-pill">
-            <h3 className="text-center rounded-pill" style={{width: '80%', padding: '15px', color: 'blue', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}><a href="/signup">Sign up</a> to start sharing good</h3>
+            <h3 className="text-center rounded-pill" style={{width: '80%', padding: '15px', color: 'blue', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}><a href="/signup" style={{color: 'rgb(231, 48, 134)'}}>Sign up</a> to start sharing good</h3>
             </div>
           </Col>
         </Row>
