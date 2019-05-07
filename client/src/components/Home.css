@@ -1,3 +1,14 @@
+#share-btn {
+  color: rgb(233, 30, 99, 0.9);
+  border: rgb(233, 30, 99, 0.9) 1px solid;
+  padding: 7px;
+}
+
+#share-btn:hover {
+  color: white;
+  background-color: rgb(233, 30, 99, 0.8);
+}
+
 .home {
   /* background-image: url("https://github.com/matthewcline/gosharegood/blob/master/client/public/imgs/home_background.png?raw=true"); */
   /* background-position: center;
@@ -11,7 +22,7 @@
 .add-post-btn {
   display: flex;
   padding-top: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
 
 /* .aws-btn {

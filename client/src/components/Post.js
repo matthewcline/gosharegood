@@ -41,6 +41,7 @@ class Post extends React.Component {
   };
 
   componentWillReceiveProps(props) {
+    console.log("called componentWillReceiveProps");
     this.setState({
       numVotes: props.post.votes,
       voted: props.voted
@@ -56,6 +57,7 @@ class Post extends React.Component {
         .put(`/posts/${this.props.post._id}/votes`)
         .then(response => {
           if (response.status === 200) {
+            console.log(response.data);
               this.setState({ 
                 numVotes: response.data.votes,
                 voted: !this.state.voted
@@ -145,7 +147,7 @@ class Post extends React.Component {
                   <p style={{color: 'gray', fontSize: '.85rem'}}>
                     Posted by {this.props.post.author.username}
                     {this.props.post.timeCreated && 
-                      <span class="ml-1">{getTimeSinceCreated(this.props.post.timeCreated)}</span>
+                      <span className="ml-1">{getTimeSinceCreated(this.props.post.timeCreated)}</span>
                     }
                   </p>
                   {this.props.post.url &&
@@ -157,7 +159,7 @@ class Post extends React.Component {
                           this.props.post.url
                         }
                         <span>
-                        <i style={{position: 'relative', bottom: '-4px'}} class="material-icons">
+                        <i style={{position: 'relative', bottom: '-4px'}} className="material-icons">
                         exit_to_app
                         </i>
                         </span>

@@ -9,7 +9,25 @@ import {
   AwesomeButtonSocial,
 } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
-import './Home.css'
+import './Home.css';
+import posed from 'react-pose';
+
+const Button = posed.div({
+  hoverable: true,
+  pressable: true,
+  init: {
+    scale: 1.6,
+    boxShadow: '0px 0px 0px rgba(0,0,0,0)'
+  },
+  hover: {
+    scale: 1.75,
+    boxShadow: '0px 5px 10px rgba(0,0,0,0.2)'
+  },
+  press: {
+    scale: 2.0,
+    boxShadow: '0px 2px 5px rgba(0,0,0,0.1)'
+  }
+});
 
 class Home extends React.Component {
   state = { 
@@ -33,10 +51,10 @@ class Home extends React.Component {
     return (
       <div>
         <div className="add-post-btn justify-content-center">
-          <Link to="/posts/new" >
-            <Fab color="secondary" aria-label="Add">
-              <AddIcon onClick={this.onAddPostFormOpen} />
-            </Fab>
+          <Link style={{textDecoration: 'none'}} to="/posts/new" >
+            <Button id="share-btn" className="rounded" onClick={this.onAddPostFormOpen}>
+              Add Post
+            </Button>
           </Link>
         </div>
         <hr style={{width: '60%'}}></hr>
