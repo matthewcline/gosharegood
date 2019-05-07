@@ -61,9 +61,9 @@ class Navigation extends React.Component {
           <Navbar.Brand>
             <Link to="/">
               <Image 
-                src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsg.png" 
+                src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglogo.png" 
                 fluid
-                style={{height: '30px'}}
+                style={{height: '70px'}}
               />
             </Link>
           </Navbar.Brand>
