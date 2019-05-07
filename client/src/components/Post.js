@@ -92,7 +92,7 @@ class Post extends React.Component {
             <InfoMessage type={'error'} text={this.state.errorMessage} />
           }
           <Row className="justify-content-between align-items-center">
-            <Col xs={3} md={2} style={{paddingLeft: '0'}}>
+            <Col xs={3} md={2} className="px-lg-3">
               <div>
                 {this.state.voted ? 
                   (
@@ -124,11 +124,11 @@ class Post extends React.Component {
                 }
               </div>
             </Col> 
-            <Col xs={9} md={10}>
+            <Col xs={9} md={10} className="pl-lg-4">
                 <Row>
-                  <h4>
+                  <p style={{fontSize: '1.5rem'}}>
                     {this.props.post.title}
-                  </h4>
+                  </p>
                 </Row>
                 <Row className="justify-content-center">
                   <Col xs={2}>

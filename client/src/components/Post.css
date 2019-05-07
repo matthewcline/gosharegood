@@ -28,8 +28,8 @@
 }
 
 .clicked-hands-div {
-  background-color: rgba(0, 0, 255, 1.0);
-  border: 1px rgba(0, 0, 255, 0.5) solid;
+  background-color: rgb(233, 30, 99, 0.9);
+  border: none;
   color: white;
 }
 
@@ -41,6 +41,6 @@
 
 @media only screen and (min-width: 1200px) {
   .post {
-    width: 50%;
+    width: 57%;
   }
 }
