@@ -56,10 +56,14 @@ class Navigation extends React.Component {
   
   render() {
     return (
-      <Container className="nav-container">
+      <Container 
+        className={"nav-container " + 
+          (this.props.location.pathname === '/about' ? 'fixed-top' : '')
+        }
+      >
         <Navbar expand="lg" className="navbar">
           <Navbar.Brand>
-            <Link to="/">
+            <Link to="/posts">
               <Image 
                 src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglogo.png" 
                 fluid

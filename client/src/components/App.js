@@ -59,14 +59,8 @@ class App extends React.Component {
               updateUser={this.updateUser} 
               loggedIn={this.state.loggedIn} 
               username={this.state.username} 
+              location={location}
             />
-            <p className="text-center mb-5">
-              Note: this is a beta release.  Please share your feedback  
-              <Link className="ml-1" to="feedback" alt="submit-feedback">
-                here
-              </Link>!
-              
-            </p>
             <Route exact path="/" render={() => (
                 <Redirect to="/posts"/>
               )}

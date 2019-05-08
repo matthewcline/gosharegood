@@ -41,7 +41,6 @@ class Post extends React.Component {
   };
 
   componentWillReceiveProps(props) {
-    console.log("called componentWillReceiveProps");
     this.setState({
       numVotes: props.post.votes,
       voted: props.voted
