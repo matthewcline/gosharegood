@@ -16,7 +16,8 @@ const About = () => {
         </video>
         <div class="overlay">
             {/* <h1 style={{color: 'white'}}>Go. Share. Good.</h1> */}
-            <h1 style={{color: 'white'}}>Go. Share.</h1>
+            <h1 style={{color: 'white'}}>Go.</h1>
+            <h1 style={{color: 'white'}}>Share.</h1>
             <h1>
               <Image 
                 src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/good.png" 
@@ -27,16 +28,21 @@ const About = () => {
             <button type="submit">Share</button>
         </div>
       </div>
+      <div style={{width: '100%', backgroundColor: 'gray'}}>
+        <p>Go Share Good is a place where anyone can share good news around the world.</p>
+      </div>
       <Container className="about-container-text">
         <Row className="justify-content-center text-center">
           <Col xs={12} lg={5}>
-            <h1>Go. Share.</h1>
-            <h1>
-              <Image 
-                src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/good.png" 
-                fluid 
-              />
-            </h1>
+            <div style={{width: '100%', backgroundColor: 'gray'}}>
+              <h1>Go. Share.</h1>
+              <h1>
+                <Image 
+                  src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/good.png" 
+                  fluid 
+                />
+              </h1>
+            </div>
           </Col>
         </Row>
         <Row className="justify-content-center text-center">
