@@ -10,8 +10,8 @@ import './About.css';
 const About = () => {
   return (
     <div className="about-container">
-      <div>
-        <video style={{width: '100%'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
+      <div style={{backgroundColor: 'black'}}>
+        <video style={{width: '100%', opacity: '0.7', display: 'block'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
           <source src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglandingpage.mp4" type="video/mp4"></source>
         </video>
       </div>
