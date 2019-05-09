@@ -11,7 +11,9 @@ import './Navigation.css';
 import axios from 'axios';
 
 class Navigation extends React.Component {
-  state = { redirectTo: null }
+  state = { 
+    redirectTo: null
+  }
 
   logout = (event) => {
     axios
@@ -53,15 +55,34 @@ class Navigation extends React.Component {
       </Nav>
     );
   } 
+
+  listenScrollEvent = e => {
+    if(this.props.location.pathname === '/about') {
+      if (window.scrollY > 200) {
+        document.querySelector(".about-nav").classList.add("scrolled");
+      } else {
+        document.querySelector(".about-nav").classList.remove("scrolled");
+      }
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.listenScrollEvent)
+  }
   
   render() {
     return (
-      <Container 
-        className={"nav-container " + 
-          (this.props.location.pathname === '/about' ? 'fixed-top' : '')
-        }
-      >
-        <Navbar expand="lg" className={this.props.location.pathname === '/about' ? 'about-nav' : 'navbar'}>
+      // <Container 
+      //   className={"nav-container " + 
+      //     (this.props.location.pathname === '/about' ? 'fixed-top' : '')
+      //   }
+      // >
+        <Navbar expand="lg" 
+          className=
+            {
+              this.props.location.pathname === '/about' ? 'about-nav fixed-top' : 'navbar'
+            }
+          >
           <Navbar.Brand>
             <Link to="/posts">
               <Image 
@@ -81,7 +102,7 @@ class Navigation extends React.Component {
             {this.getLoginLinks()}
           </Navbar.Collapse>
         </Navbar>
-      </Container>
+      // </Container>
     );
   }
 }

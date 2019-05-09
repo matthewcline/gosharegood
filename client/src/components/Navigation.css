@@ -1,10 +1,11 @@
 .navbar {
   color: rgb(104, 104, 104);
-  margin: 25px auto;
+  /* margin: 25px auto; */
 }
 
 .about-nav {
   color: white;
+  width: 100%;
 }
 
 .about-nav .active {
@@ -31,9 +32,20 @@
   color: #0098df;
 }
 
+.scrolled {
+  background-color: white;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
 @media only screen and (min-width: 992px) {
-  .nav-container {
-    width: 75%;
+  .navbar {
+    padding-left: 15%;
+    padding-right: 15%;
   }  
+
 }
 
