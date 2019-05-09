@@ -34,58 +34,33 @@ const About = () => {
       </div>
       <div 
         className="justify-content-center align-items-center"
-        style={{display: 'flex', margin: 'auto', width: '100%', height: '200px', color: 'rgb(22,32,64)', backgroundColor: 'rgb(255, 217, 112, 0.7)'}}
+        style={{display: 'flex', margin: 'auto', width: '100%', height: '200px', color: 'rgb(22,32,64)', backgroundColor: 'rgb(255, 217, 112, 0.9)'}}
       >
-        <h4>Go Share Good is a place where anyone can share good news around the world.</h4>
+        <h4>Go Share Good is a place where anyone can share good news from around the world.</h4>
       </div>
-      <Container className="about-container-text">
-        <Row className="justify-content-center text-center">
-          <Col xs={12} lg={5}>
-            <div style={{width: '100%', height: '500px', backgroundColor: 'rgb(255, 217, 112, 0.7)'}}>
-              <h1>Go. Share.</h1>
-              <h1>
-                <Image 
-                  src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/good.png" 
-                  fluid 
-                />
-              </h1>
-            </div>
-          </Col>
-        </Row>
-        <Row className="justify-content-center text-center">
-          <Col xs={12} lg={8}>
-            <div className="about-container-inner-text rounded-pill">
-            <h3 className="text-center rounded-pill" style={{width: '80%', padding: '15px', color: 'blue', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}>Looking for good news in the world?</h3>
-
-              {/* <h3>Looking for good news in the world?</h3> */}
-              <h5 className="mt-4">You've come to the right place!  On Go Share Good, share good things happening in the world.</h5>
-            </div>
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col xs={12} lg={10}>
-            <div className="about-container-inner-text rounded-pill">
-              <Row className="justify-content-center">
-                <Col xs={10} lg={10}>
-                  <h3 className="text-center rounded-pill" style={{width: '50%', padding: '15px', color: 'blue', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}>How it works:</h3>
-                  <h5 className="mt-5">1. Find an article that inspires you or highlights progress in the world</h5>
-                  <h5 className="ml-3 mt-2">or </h5>
-                  <h5 className="ml-3 mt-2">   Share a personal anecdote of good you witnessed</h5>
-                  <h5 className="mt-3">2. Share the post by clicking on the plus(+) icon</h5>
-                  <h5 className="mb-5 mt-3">3. Vote for your favorite posts! </h5>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-        <Row className="pb-5 justify-content-center text-center">
-          <Col xs={12} lg={8}>
-            <div className="about-container-inner-text rounded-pill">
-            <h3 className="text-center rounded-pill" style={{width: '80%', padding: '15px', color: 'blue', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}><a href="/signup" style={{color: 'rgb(231, 48, 134)'}}>Sign up</a> to start sharing good</h3>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div style={{backgroundColor: 'rgba(241, 238, 238, 0.726)'}}>
+        <Container className="about-container-text">
+          <Row className="justify-content-center">
+            <Col xs={12} lg={10}>
+              <div className="about-container-inner-text rounded">
+                <Row className="justify-content-center text-center">
+                  <Col xs={10} lg={10}>
+                    <h3 className="text-center rounded-pill" style={{width: '70%', padding: '15px', color: '#e91e63', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}>How it works:</h3>
+                    <h4 className="mt-5">1. Share an article that inspires you</h4>
+                    <h4 className="mt-2">or</h4>
+                    <h4 className="mt-2">a personal anecdote of good you witnessed</h4>
+                    <h4 className="mb-5 mt-5">2. Vote for your favorite posts! </h4>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
+          <Row className="py-5 justify-content-center text-center">
+            <Col xs={12} lg={8}>
+              <h3 className="text-center rounded-pill" style={{width: '80%', padding: '15px', color: '#e91e63', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}><a href="/signup" style={{color: '#4fc3f7'}}>Sign up</a> to start sharing good</h3>            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }
