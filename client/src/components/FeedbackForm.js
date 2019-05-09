@@ -30,7 +30,7 @@ class FeedbackForm extends React.Component {
       .then(response => {
         if (response.status === 200) {
             this.setState({
-                redirectTo: '/'
+                redirectTo: '/posts'
             })
         }
       }).catch(err => {
@@ -47,7 +47,7 @@ class FeedbackForm extends React.Component {
           <Container>
             <Row className="justify-content-center mb-4">
               <Col xs={10} lg={6}>
-                <Link to="/">
+                <Link to="/posts">
                   Back
                 </Link>
               </Col>

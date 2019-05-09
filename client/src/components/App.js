@@ -62,7 +62,7 @@ class App extends React.Component {
               location={location}
             />
             <Route exact path="/" render={() => (
-                <Redirect to="/posts"/>
+                <Redirect to="/about"/>
               )}
             />
             <Route 

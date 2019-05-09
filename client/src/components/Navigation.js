@@ -36,7 +36,7 @@ class Navigation extends React.Component {
           <LinkContainer to="#" className="link-container" style={{marginRight: '25px'}}>
             <NavItem>Signed in as { this.props.username }</NavItem>
           </LinkContainer>
-          <IndexLinkContainer to="/" className="link-container" onClick={this.logout}>
+          <IndexLinkContainer to="/posts" className="link-container" onClick={this.logout}>
             <NavItem>Logout</NavItem>
           </IndexLinkContainer>
         </Nav>

@@ -1,17 +1,20 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
+import posed from 'react-pose';
 import './About.css';
+import PosedButton from './PosedButton';
 
 const About = () => {
   return (
     <div className="about-container">
       <div class="video-div" style={{backgroundColor: 'black'}}>
-        <video style={{width: '100%', opacity: '0.7', display: 'block'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
+        <video style={{opacity: '0.7', display: 'block'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
           <source src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglandingpage.mp4" type="video/mp4"></source>
         </video>
         <div class="overlay">
@@ -24,17 +27,21 @@ const About = () => {
                 fluid 
               />
             </h1>
-            <p style={{color: 'white'}}>Where you see good news happening around the world.</p>
-            <button type="submit">Share</button>
+            <Link style={{textDecoration: 'none'}} to="/posts" >
+              <PosedButton className="share-btn-homepage rounded">View Posts</PosedButton>
+            </Link>
         </div>
       </div>
-      <div style={{width: '100%', backgroundColor: 'gray'}}>
-        <p>Go Share Good is a place where anyone can share good news around the world.</p>
+      <div 
+        className="justify-content-center align-items-center"
+        style={{display: 'flex', margin: 'auto', width: '100%', height: '200px', color: 'rgb(22,32,64)', backgroundColor: 'rgb(255, 217, 112, 0.7)'}}
+      >
+        <h4>Go Share Good is a place where anyone can share good news around the world.</h4>
       </div>
       <Container className="about-container-text">
         <Row className="justify-content-center text-center">
           <Col xs={12} lg={5}>
-            <div style={{width: '100%', backgroundColor: 'gray'}}>
+            <div style={{width: '100%', height: '500px', backgroundColor: 'rgb(255, 217, 112, 0.7)'}}>
               <h1>Go. Share.</h1>
               <h1>
                 <Image 

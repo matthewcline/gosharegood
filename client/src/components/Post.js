@@ -74,7 +74,7 @@ class Post extends React.Component {
       .then(response => {
         if (response.status === 200) {
           this.setState({
-            redirectTo: '/'
+            redirectTo: '/posts'
           });
         }
       }).catch(err => {

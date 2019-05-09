@@ -37,7 +37,7 @@ class AddPostForm extends React.Component {
         console.log(response)
         if (response.status === 200) {
             this.setState({
-                redirectTo: '/'
+                redirectTo: '/posts'
             })
         }
       }).catch(err => {
@@ -61,7 +61,7 @@ class AddPostForm extends React.Component {
           <Container>
             <Row className="justify-content-center mb-4">
               <Col xs={10} lg={6}>
-                <Link to="/">
+                <Link to="/posts">
                   Back
                 </Link>
               </Col>

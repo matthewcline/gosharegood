@@ -1,10 +1,10 @@
-#share-btn {
+.share-btn {
   color: rgb(233, 30, 99, 0.9);
   border: rgb(233, 30, 99, 0.9) 1px solid;
   padding: 7px;
 }
 
-#share-btn:hover {
+.share-btn:hover {
   color: white;
   background-color: rgb(233, 30, 99, 0.8);
 }

@@ -55,7 +55,7 @@ class Signup extends React.Component {
                   votes: response.data.user.votes
               })
               this.setState({
-                  redirectTo: '/'
+                  redirectTo: '/posts'
               })
           }
         }).catch(err => {
