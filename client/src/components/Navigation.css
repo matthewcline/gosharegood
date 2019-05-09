@@ -3,17 +3,32 @@
   margin: 25px auto;
 }
 
+.about-nav {
+  color: white;
+}
+
+.about-nav .active {
+  color: #4fc3f7;
+}
+
+.about-nav .link-container:hover {
+  /* color: rgb(52,77,252); */
+  color: #e91e63;
+}
+
 .link-container {
   margin-right: 1px;
   cursor: pointer;
 }
 
 .link-container:hover {
-  color: rgb(52,77,252);
+  /* color: rgb(52,77,252); */
+  color: #e91e63;
 }
 
 .active {
-  color: rgb(22,32,64);
+  /* color: rgb(22,32,64); */
+  color: #0098df;
 }
 
 @media only screen and (min-width: 992px) {

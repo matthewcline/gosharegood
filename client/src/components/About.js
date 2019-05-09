@@ -10,10 +10,22 @@ import './About.css';
 const About = () => {
   return (
     <div className="about-container">
-      <div style={{backgroundColor: 'black'}}>
+      <div class="video-div" style={{backgroundColor: 'black'}}>
         <video style={{width: '100%', opacity: '0.7', display: 'block'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
           <source src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglandingpage.mp4" type="video/mp4"></source>
         </video>
+        <div class="overlay">
+            {/* <h1 style={{color: 'white'}}>Go. Share. Good.</h1> */}
+            <h1 style={{color: 'white'}}>Go. Share.</h1>
+            <h1>
+              <Image 
+                src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/good.png" 
+                fluid 
+              />
+            </h1>
+            <p style={{color: 'white'}}>Where you see good news happening around the world.</p>
+            <button type="submit">Share</button>
+        </div>
       </div>
       <Container className="about-container-text">
         <Row className="justify-content-center text-center">

@@ -61,7 +61,7 @@ class Navigation extends React.Component {
           (this.props.location.pathname === '/about' ? 'fixed-top' : '')
         }
       >
-        <Navbar expand="lg" className="navbar">
+        <Navbar expand="lg" className={this.props.location.pathname === '/about' ? 'about-nav' : 'navbar'}>
           <Navbar.Brand>
             <Link to="/posts">
               <Image 
