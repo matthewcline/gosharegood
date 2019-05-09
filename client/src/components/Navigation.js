@@ -12,8 +12,7 @@ import axios from 'axios';
 
 class Navigation extends React.Component {
   state = { 
-    redirectTo: null,
-    navExpanded: false
+    redirectTo: null
   }
 
   logout = (event) => {
@@ -46,7 +45,7 @@ class Navigation extends React.Component {
       );
     }
     return (
-      <Nav onSelect={this.closeNav}>
+      <Nav>
         <LinkContainer to="/login" className="link-container" style={{marginRight: '25px'}}>
           <NavItem>Login</NavItem>
         </LinkContainer>
@@ -72,18 +71,8 @@ class Navigation extends React.Component {
   componentDidMount() {
     window.addEventListener('scroll', this.listenScrollEvent)
   }
-
-  setNavExpanded = () => {
-    this.setState({ navExpanded: !this.state.navExpanded });
-  }
-
-  closeNav = () => {
-    console.log("closed")
-    this.setState({ navExpanded: false });
-  }
   
   render() {
-    console.log(this.state.navExpanded)
     return (
       // <Container 
       //   className={"nav-container " + 
@@ -91,8 +80,6 @@ class Navigation extends React.Component {
       //   }
       // >
         <Navbar 
-          onToggle={this.setNavExpanded}
-          expanded={this.state.navExpanded} 
           expand="lg" 
           className=
             {
