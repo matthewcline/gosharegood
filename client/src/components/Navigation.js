@@ -12,7 +12,8 @@ import axios from 'axios';
 
 class Navigation extends React.Component {
   state = { 
-    redirectTo: null
+    redirectTo: null,
+    navExpanded: false
   }
 
   logout = (event) => {
@@ -45,7 +46,7 @@ class Navigation extends React.Component {
       );
     }
     return (
-      <Nav>
+      <Nav onSelect={this.closeNav}>
         <LinkContainer to="/login" className="link-container" style={{marginRight: '25px'}}>
           <NavItem>Login</NavItem>
         </LinkContainer>
@@ -58,10 +59,12 @@ class Navigation extends React.Component {
 
   listenScrollEvent = e => {
     if(this.props.location.pathname === '/about') {
+      const aboutNavElement = document.querySelector(".about-nav");
       if (window.scrollY > 200) {
-        document.querySelector(".about-nav").classList.add("scrolled");
+        aboutNavElement.classList.add("scrolled");
+        aboutNavElement.classList.remove("navbar-dark");
       } else {
-        document.querySelector(".about-nav").classList.remove("scrolled");
+        aboutNavElement.classList.remove("scrolled");
       }
     }
   }
@@ -69,20 +72,33 @@ class Navigation extends React.Component {
   componentDidMount() {
     window.addEventListener('scroll', this.listenScrollEvent)
   }
+
+  setNavExpanded = () => {
+    this.setState({ navExpanded: !this.state.navExpanded });
+  }
+
+  closeNav = () => {
+    console.log("closed")
+    this.setState({ navExpanded: false });
+  }
   
   render() {
+    console.log(this.state.navExpanded)
     return (
       // <Container 
       //   className={"nav-container " + 
       //     (this.props.location.pathname === '/about' ? 'fixed-top' : '')
       //   }
       // >
-        <Navbar expand="lg" 
+        <Navbar 
+          onToggle={this.setNavExpanded}
+          expanded={this.state.navExpanded} 
+          expand="lg" 
           className=
             {
-              this.props.location.pathname === '/about' ? 'about-nav fixed-top' : 'navbar'
+              this.props.location.pathname === '/about' ? 'about-nav fixed-top navbar-dark' : 'navbar'
             }
-          >
+        >
           <Navbar.Brand>
             <Link to="/posts">
               <Image 
@@ -93,7 +109,7 @@ class Navigation extends React.Component {
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between" style={{paddingTop: '10px'}}>
             <Nav>
               <LinkContainer to="/about" className="link-container ml-lg-3">
                 <NavItem>About</NavItem>

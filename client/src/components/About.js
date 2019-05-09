@@ -13,11 +13,11 @@ import PosedButton from './PosedButton';
 const About = () => {
   return (
     <div className="about-container">
-      <div class="video-div" style={{backgroundColor: 'black'}}>
-        <video style={{opacity: '0.7', display: 'block'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
+      <div className="video-div" style={{backgroundColor: 'black'}}>
+        <video style={{opacity: '0.5', display: 'block'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
           <source src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglandingpage.mp4" type="video/mp4"></source>
         </video>
-        <div class="overlay">
+        <div className="overlay">
             {/* <h1 style={{color: 'white'}}>Go. Share. Good.</h1> */}
             <h1 style={{color: 'white'}}>Go.</h1>
             <h1 style={{color: 'white'}}>Share.</h1>
@@ -33,8 +33,8 @@ const About = () => {
         </div>
       </div>
       <div 
-        className="justify-content-center align-items-center"
-        style={{display: 'flex', margin: 'auto', width: '100%', height: '200px', color: 'rgb(22,32,64)', backgroundColor: 'rgb(255, 217, 112, 0.9)'}}
+        className="justify-content-center align-items-center text-center"
+        style={{display: 'flex', paddingLeft: '10px', paddingRight: '10px', margin: 'auto', width: '100%', height: '200px', color: 'rgb(22,32,64)', backgroundColor: 'rgb(255, 217, 112, 0.9)'}}
       >
         <h4>Go Share Good is a place where anyone can share good news from around the world.</h4>
       </div>
