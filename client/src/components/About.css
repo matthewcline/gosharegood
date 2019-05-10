@@ -59,6 +59,7 @@
 
 .video-div { 
   position: relative; 
+  overflow: hidden;
 }
 
 .video-div video {
