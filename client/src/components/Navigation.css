@@ -1,6 +1,5 @@
 .navbar {
   color: rgb(104, 104, 104);
-  /* margin: 25px auto; */
 }
 
 .about-nav {
@@ -21,7 +20,7 @@
 .link-container {
   margin-right: 1px;
   cursor: pointer;
-  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .link-container:hover {
@@ -49,6 +48,10 @@
     padding-left: 15%;
     padding-right: 15%;
   }  
+
+  .link-container {
+    padding-bottom: 0;
+  }
 
 }
 

@@ -38,7 +38,7 @@ class Navigation extends React.Component {
           <LinkContainer to="#" className="link-container" style={{marginRight: '25px'}}>
             <NavItem>Signed in as { this.props.username }</NavItem>
           </LinkContainer>
-          <IndexLinkContainer to="/posts" className="link-container" onClick={this.logout}>
+          <IndexLinkContainer to="/" className="link-container" onClick={this.logout}>
             <NavItem>Logout</NavItem>
           </IndexLinkContainer>
         </Nav>
@@ -63,6 +63,7 @@ class Navigation extends React.Component {
         aboutNavElement.classList.add("scrolled");
         aboutNavElement.classList.remove("navbar-dark");
       } else {
+        aboutNavElement.classList.add("navbar-dark");
         aboutNavElement.classList.remove("scrolled");
       }
     }
@@ -87,7 +88,7 @@ class Navigation extends React.Component {
             }
         >
           <Navbar.Brand>
-            <Link to="/posts">
+            <Link to="/about">
               <Image 
                 src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglogo.png" 
                 fluid
@@ -98,8 +99,8 @@ class Navigation extends React.Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between" style={{paddingTop: '10px'}}>
             <Nav>
-              <LinkContainer to="/about" className="link-container ml-lg-3">
-                <NavItem>About</NavItem>
+              <LinkContainer to="/posts" className="link-container ml-lg-3">
+                <NavItem>News</NavItem>
               </LinkContainer>
             </Nav>
             {this.getLoginLinks()}
