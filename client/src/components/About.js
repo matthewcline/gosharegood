@@ -14,7 +14,7 @@ const About = () => {
   return (
     <div className="about-container">
       <div className="video-div" style={{backgroundColor: 'black'}}>
-        <video style={{opacity: '0.5', display: 'block'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
+        <video style={{opacity: '0.7', display: 'block'}} playsInline={true} autoPlay={true} muted={true} loop={true}>
           <source src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglandingpage.mp4" type="video/mp4"></source>
         </video>
         <div className="overlay">
