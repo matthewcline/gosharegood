@@ -4,7 +4,7 @@ var express = require("express"),
     middleware = require("../middleware");
 
 router.get("/posts", (req, res) => {
-    Post.find({}).sort('-votes').exec(function(err, allPosts) {
+    Post.find({}).sort('-timeCreated').exec(function(err, allPosts) {
         if(err) {
             console.log("Error: " + err);
         } else {
