@@ -30,13 +30,6 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <p className="text-center mb-5">
-          Note: this is a beta release.  Please share your feedback  
-          <Link className="ml-1" to="feedback" alt="submit-feedback">
-            here
-          </Link>!
-          
-        </p>
         <div className="add-post-btn justify-content-center">
           <Link style={{textDecoration: 'none'}} to="/posts/new" >
             <PosedButton className="share-btn rounded" onClick={this.onAddPostFormOpen}>
