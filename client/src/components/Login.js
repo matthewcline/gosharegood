@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import InfoMessage from './InfoMessage';
+import PosedButton from './PosedButton';
 import './Login.css';
 
 class Login extends React.Component {
@@ -70,7 +71,6 @@ class Login extends React.Component {
             }
             <Row className="justify-content-center mb-4">
               <Col xs={10} lg={6}>
-                <h1 className="text-center">Login</h1>
               </Col>
             </Row>
             <Row className="justify-content-center">
@@ -94,9 +94,11 @@ class Login extends React.Component {
                       onChange={this.handleChange}
                     />
                   </Form.Group>
-                  <Button onClick={this.handleSubmit} variant="primary" type="submit">
-                    Login
-                  </Button>
+                  <div className="add-post-btn justify-content-center mt-4">
+                    <PosedButton className="share-btn rounded" onClick={this.handleSubmit}>
+                      Login
+                    </PosedButton>
+                  </div>
                 </Form>
               </Col>
             </Row>
