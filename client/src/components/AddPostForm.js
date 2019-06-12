@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import InfoMessage from './InfoMessage';
+import PosedButton from './PosedButton';
 import './Login.css';
 import axios from 'axios';
 
@@ -105,9 +106,11 @@ class AddPostForm extends React.Component {
                       onChange={this.handleChange}
                     />
                   </Form.Group>
-                  <Button onClick={this.handleSubmit} variant="primary" type="submit">
-                    Submit
-                  </Button>
+                  <div className="add-post-btn justify-content-center mt-4">
+                    <PosedButton className="share-btn rounded" onClick={this.handleSubmit}>
+                      Submit
+                    </PosedButton>
+                  </div>
                 </Form>
               </Col>
             </Row>
