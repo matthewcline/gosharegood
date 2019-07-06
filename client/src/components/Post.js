@@ -128,9 +128,13 @@ class Post extends React.Component {
             <Col xs={9} md={10} className="pl-lg-4">
                 <Row>
                   <p style={{fontSize: '1.5rem'}}>
-                    <a className="post-title" href={this.props.post.url} target="_blank">  
-                      {this.props.post.title}
-                    </a>
+                    {this.props.post.url ? 
+                      <a className="post-title" href={this.props.post.url} target="_blank">  
+                        {this.props.post.title}
+                      </a>
+                      :
+                      this.props.post.title
+                    }
                   </p>
                 </Row>
                 <Row className="justify-content-center">
