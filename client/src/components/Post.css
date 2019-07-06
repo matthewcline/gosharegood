@@ -11,6 +11,15 @@
   overflow: hidden;
 }
 
+.post-title {
+  color: rgb(22,32,64);
+}
+
+.post-title:hover {
+  color: #e91e63;
+  text-decoration: none; 
+}
+
 .edit-and-delete-icon {
   color: rgb(97, 96, 96);
   margin-right: 18px;
