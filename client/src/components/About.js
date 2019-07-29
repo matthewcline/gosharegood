@@ -1,12 +1,9 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
-import posed from 'react-pose';
 import './About.css';
 import PosedButton from './PosedButton';
 
