@@ -15,7 +15,6 @@ const About = () => {
           <source src="https://raw.githubusercontent.com/matthewcline/gosharegood/master/client/public/imgs/gsglandingpage.mp4" type="video/mp4"></source>
         </video>
         <div className="overlay">
-            {/* <h1 style={{color: 'white'}}>Go. Share. Good.</h1> */}
             <h1 style={{color: 'white'}}>Go.</h1>
             <h1 style={{color: 'white'}}>Share.</h1>
             <h1>
@@ -54,7 +53,8 @@ const About = () => {
           </Row>
           <Row className="py-5 justify-content-center text-center">
             <Col xs={12} lg={8}>
-              <h3 className="text-center rounded-pill" style={{width: '80%', padding: '15px', color: '#e91e63', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}><a href="/signup" style={{color: '#4fc3f7'}}>Sign up</a> to start sharing good</h3>            </Col>
+              <h3 className="text-center rounded-pill" style={{width: '80%', padding: '15px', color: '#e91e63', backgroundColor: 'rgb(255, 217, 112, 0.9)', margin: 'auto'}}><a href="/signup" style={{color: '#4fc3f7'}}>Sign up</a> to start sharing good</h3>            
+            </Col>
           </Row>
         </Container>
       </div>

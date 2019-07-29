@@ -14,11 +14,6 @@ import './App.css';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
-const RouteContainer = posed.div({
-  enter: { opacity: 1, delay: 300, beforeChildren: true },
-  exit: { opacity: 0 }
-});
-
 class App extends React.Component {
   state = { 
     loggedIn: false, 
@@ -75,24 +70,18 @@ class App extends React.Component {
               render={(props) => 
                 <EditPostForm {...props} loggedIn={this.state.loggedIn} />}
             />
-            {/* <PoseGroup>
-              <RouteContainer key={location.key}>
-                <Switch location={location}> */}
-                  <Route 
-                    exact
-                    key="home"
-                    path='/posts'
-                    render={() => 
-                      <Home 
-                        loggedIn={this.state.loggedIn}
-                        username={this.state.username}
-                        votes={this.state.votes}  
-                      />}
-                  />
-                  <Route key="about" path='/about' component={About} />
-                {/* </Switch>
-              </RouteContainer>
-            </PoseGroup> */}
+            <Route 
+              exact
+              key="home"
+              path='/posts'
+              render={() => 
+                <Home 
+                  loggedIn={this.state.loggedIn}
+                  username={this.state.username}
+                  votes={this.state.votes}  
+                />}
+            />
+            <Route key="about" path='/about' component={About} />
             <Route 
               path='/login'
               render={() => <Login updateUser={this.updateUser} />}
