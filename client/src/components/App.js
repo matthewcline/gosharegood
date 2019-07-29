@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from "react-router-dom";
-import { AnimatedRoute } from 'react-router-transition';
-import posed, { PoseGroup } from 'react-pose';
 import Navigation from './Navigation';
 import Home from './Home';
 import About from './About';

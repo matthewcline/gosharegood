@@ -1,6 +1,6 @@
 import './Post.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Link, Redirect } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -129,7 +129,7 @@ class Post extends React.Component {
                 <Row>
                   <p style={{fontSize: '1.5rem'}}>
                     {this.props.post.url ? 
-                      <a className="post-title" href={this.props.post.url} target="_blank">  
+                      <a className="post-title" href={this.props.post.url} target="_blank" rel="noopener noreferrer">  
                         {this.props.post.title}
                       </a>
                       :
@@ -157,7 +157,7 @@ class Post extends React.Component {
                   </p>
                   {this.props.post.url &&
                     <div>
-                      <a href={this.props.post.url} target="_blank">
+                      <a href={this.props.post.url} target="_blank" rel="noopener noreferrer">
                         {this.props.post.url.length > 50 ?
                           `${this.props.post.url.substring(0, 40)}...`
                           :

@@ -1,11 +1,8 @@
 import React from 'react';
 import PostList from './PostList';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import { BrowserRouter as Link } from "react-router-dom";
 import 'react-awesome-button/dist/styles.css';
 import './Home.css';
-import posed from 'react-pose';
 import PosedButton from './PosedButton';
 
 
